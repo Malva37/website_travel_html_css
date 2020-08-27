@@ -1,0 +1,289 @@
+@font-face {
+    font-family: "Nunito Sans";
+    src: url(/fonts/Nunito_Sans/NunitoSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Nunito Sans - Extra Bold";
+    src: url(/fonts/Nunito_Sans/NunitoSans-ExtraBold.ttf);
+}
+
+@font-face {
+    font-family: "Nunito Sans - Semi Bold";
+    src: url(/fonts/Nunito_Sans/NunitoSans-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: "Nunito - Semi Bold";
+    src: url(/fonts/Nunito/Nunito-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: "Nunito";
+    src: url(/fonts/Nunito/Nunito-Regular.ttf);
+}
+
+body {
+    background-color: #fff;
+    font-family: "Nunito Sans - Semi Bold";
+    /* margin: 0 auto; */
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.wrapper {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+
+.headerTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding-top: 71px;
+
+
+}
+
+.logo {
+    width: 179px;
+    height: 50px;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu a {
+    color: #bab8b8;
+    font-family: "Nunito";
+    font-size: 20px;
+    margin-left: 60px;
+}
+
+.navLink.active {
+    color: #4497f3;
+    font-family: "Nunito - Semi Bold";
+}
+
+.navLink.btnSignIn {
+    border: 3px solid #3984f3;
+    padding: 19px 47px;
+    color: #3984f3;
+
+}
+
+.headerSignUp {
+    padding: 324px 0 481px;
+    max-width: 514px;
+    z-index: 1;
+}
+
+.headerImageRight {
+    position: absolute;
+    right: 0;
+    top: 200px;
+    z-index: -1;
+
+}
+
+.headerImageLeft {
+    position: absolute;
+    left: -161px;
+    top: 1025px;
+    z-index: -1;
+}
+
+.titleHeader {
+    color: #091e40;
+    font-family: "Nunito Sans - Extra Bold";
+    font-size: 75px;
+    font-weight: 400;
+    line-height: 80px;
+
+}
+
+.titleHeader+p {
+    color: #81858e;
+    font-family: "Nunito Sans";
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 35px;
+    letter-spacing: 0.22px;
+    padding: 76px 0 96px;
+}
+
+.btn {
+    padding: 19px 46px;
+    color: #ffffff;
+    font-family: "Nunito Sans - Semi Bold";
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 35px;
+    letter-spacing: 0.2px;
+    background-color: #3984f3;
+    border: none;
+}
+
+@media(max-width:1715px) {
+
+
+    .headerImageLeft {
+        left: -163px;
+        top: 872px;
+    }
+}
+
+/* header */
+
+
+/* .listTravel .container { */
+/* .listTravel {
+    display: flex;
+    justify-content: space-between;
+
+} */
+
+.listTravelArticle {
+    max-width: 574px;
+    margin-left: 140px;
+    float: right;
+}
+
+.title {
+    color: #091e40;
+    font-family: "Nunito Sans - Semi Bold";
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 62px;
+    letter-spacing: 0.13px;
+}
+
+.listTravelArticle .line {
+    margin: 40px 0 59px;
+
+}
+
+.line {
+    width: 78px;
+    height: 6px;
+    background-color: #3984f3;
+    display: block;
+
+}
+
+
+.title~p {
+    color: #81858e;
+    font-family: "Nunito Sans";
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 42px;
+    letter-spacing: 0.22px;
+    margin-bottom: 61px;
+}
+
+.listPlaces {
+    max-width: 1050px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+}
+
+.places {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    margin: 0;
+
+}
+
+.place {
+    margin-left: 37px;
+    position: relative;
+
+}
+
+.dataPlace {
+    display: none;
+}
+
+.activePlace>.dataPlace {
+    display: block;
+}
+
+.activePlace {
+    bottom: 73px;
+}
+
+
+
+.place:first-child {
+    margin-left: 0;
+}
+
+.imagePlace {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(29, 48, 55, 0) 95%, rgba(29, 47, 55, 1) 100%);
+}
+
+.listPlaces img {
+    z-index: -1;
+    display: block;
+    position: relative;
+    max-width: 372px;
+}
+
+.pricePlace {
+    position: absolute;
+    top: 31px;
+    z-index: 1;
+    color: #ffffff;
+    font-family: "Nunito Sans - Semi Bold";
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 42px;
+    letter-spacing: 0.24px;
+    background-color: #3984f3;
+    padding: 10px 30px;
+}
+
+.namePlace {
+    position: absolute;
+    bottom: 29px;
+    left: 25px;
+    z-index: 1;
+    color: #ffffff;
+    font-family: "Nunito Sans";
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 42px;
+}
+
+.navigation {
+    padding: 78px 0 254px;
+    margin-left: 30px;
+    display: flex;
+
+}
+
+.arrow {
+    width: 39px;
+    height: 28px;
+    /* background-color: #a0a0a0; */
+}
+
+.prev {
+    margin-right: 62px;
+}
