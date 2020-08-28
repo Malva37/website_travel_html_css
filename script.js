@@ -30,6 +30,15 @@
 //     list.style.marginLeft = position + 'px';
 // };
 
+
+
+
+
+
+
+
+
+
 let links = document.querySelectorAll('.place');
 console.log(links);
 

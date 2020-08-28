@@ -26,7 +26,6 @@
 body {
     background-color: #fff;
     font-family: "Nunito Sans - Semi Bold";
-    /* margin: 0 auto; */
 }
 
 a {
@@ -39,50 +38,61 @@ ul {
     padding-left: 0;
 }
 
-.wrapper {
-    max-width: 1600px;
-    margin: 0 auto;
-}
-
-
 .headerTop {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
     padding-top: 71px;
-
+    margin: 0 auto;
 
 }
 
 .logo {
-    width: 179px;
-    height: 50px;
+    cursor: pointer;
+}
+.logo img{
+    background: no-repeat;
+}
+nav {
+    display: flex;
 }
 
-.menu {
+
+.nav {
     display: flex;
     justify-content: space-around;
+    padding-left: 0;
+    padding-right: 60px;
+    margin: 0;
+    max-width: 500px;
+    align-items: center;
 }
 
-.menu a {
+.nav a {
     color: #bab8b8;
     font-family: "Nunito";
     font-size: 20px;
+}
+.navItem{
     margin-left: 60px;
 }
-
+.navItem:first-child{
+    margin-left: 0;
+}
 .navLink.active {
     color: #4497f3;
     font-family: "Nunito - Semi Bold";
 }
 
-.navLink.btnSignIn {
+.btnSignIn {
     border: 3px solid #3984f3;
-    padding: 19px 47px;
+    padding: 19px 46px;
     color: #3984f3;
+    font-family: "Nunito";
+    font-size: 20px;
 
 }
+
 
 .headerSignUp {
     padding: 324px 0 481px;
@@ -92,18 +102,29 @@ ul {
 
 .headerImageRight {
     position: absolute;
+    width: 1050px;
     right: 0;
     top: 200px;
     z-index: -1;
 
 }
+.headerImageRight img{
+    width: 100%;
+}
 
 .headerImageLeft {
     position: absolute;
-    left: -161px;
     top: 1025px;
+    width: 247px;
     z-index: -1;
 }
+
+.headerImageLeft img{
+    width: 100%;
+}
+
+
+
 
 .titleHeader {
     color: #091e40;
@@ -136,24 +157,11 @@ ul {
     border: none;
 }
 
-@media(max-width:1715px) {
 
-
-    .headerImageLeft {
-        left: -163px;
-        top: 872px;
-    }
-}
 
 /* header */
 
 
-/* .listTravel .container { */
-/* .listTravel {
-    display: flex;
-    justify-content: space-between;
-
-} */
 
 .listTravelArticle {
     max-width: 574px;
@@ -165,6 +173,7 @@ ul {
     color: #091e40;
     font-family: "Nunito Sans - Semi Bold";
     font-size: 50px;
+    margin: 0;
     font-weight: 400;
     line-height: 62px;
     letter-spacing: 0.13px;

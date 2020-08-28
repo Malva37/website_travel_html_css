@@ -13,33 +13,43 @@
 </head>
 
 <body>
-    <header class="header">
-        <div class="wrapper">
-            <div class="headerTop">
-                <img class="logo" src="img/logo.png" alt="Logo">
-                <nav>
-                    <ul class="menu">
-                        <li class="navItem"><a href="#home" class="navLink active">Home</a></li>
-                        <li class="navItem"><a href="#video" class="navLink">Video</a></li>
-                        <li class="navItem"><a href="#destinations" class="navLink">Destinations</a></li>
-                        <li class="navItem"><a href="#booking" class="navLink">Booking</a></li>
-                        <li class="navItem"><a href="#" class="navLink btnSignIn">SignIn</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="headerSignUp">
-                <h1 class="titleHeader">Travel around the world</h1>
-                <p>Plan and book your perfect trip with expert advice,
-                    travel tips, destination information and
-                    inspiration from us.</p>
-                <button class="btn">Sign Up Now</button>
-            </div>
-        </div>
 
-        <img class="headerImageRight" src="img/headerImageRight.png" alt="">
-        <img class="headerImageLeft" src="img/headerImageLeft.png" alt="">
+    <header class="header">
+        <div class="headerTop">
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo">
+            </div>
+            <nav>
+                <ul class="nav">
+                    <li class="navItem"><a href="#home" class="navLink active">Home</a></li>
+                    <li class="navItem"><a href="#video" class="navLink">Video</a></li>
+                    <li class="navItem"><a href="#destinations" class="navLink">Destinations</a></li>
+                    <li class="navItem"><a href="#booking" class="navLink">Booking</a></li>
+                </ul>
+                <a href="#" class="btnSignIn">SignIn</a>
+            </nav>
+        </div>
     </header>
+
+    <div class="headerSignUp">
+        <h1 class="titleHeader">Travel around the world</h1>
+        <p>Plan and book your perfect trip with expert advice,
+            travel tips, destination information and
+            inspiration from us.</p>
+        <button class="btn">Sign Up Now</button>
+    </div>
+
+    <div class="headerImageRight">
+        <img src="img/headerImageRight.png" alt="">
+    </div>
+
+    <div class="headerImageLeft">
+        <img src="img/headerImageLeft.png" alt="">
+    </div>
+
+
     <section class="listTravel">
+
         <div class="listPlaces">
             <ul class="places">
                 <li class="place">
@@ -88,29 +98,32 @@
                     </div>
                 </li>
             </ul>
-            <!-- </div> -->
             <div class="navigation">
                 <img src="img/prev.png" class="arrow prev" alt="Prev">
                 <img src="img/next.png" class="arrow next" alt="Next">
             </div>
         </div>
-        <div class="wrapper">
-            <article class="listTravelArticle">
-                <h1 class="title">Amazing places to enjoy
-                    your travel</h1>
-                <div class="line"></div>
-                <p>Etiam facilisis, sapien quis porta dignissim, orci nisi pharetra dui, varius vehicula ligula nulla
-                    sit amet lorem. Aenean in vestibulum quam. Cras commodo varius neque, non gravida diam ultrices nec.
-                    Cras nulla mauris, fermentum nec libero in.</p>
-                <button class="btn">Explore</button>
-            </article>
-        </div>
+
+        <article class="listTravelArticle">
+            <h1 class="title">Amazing places to enjoy
+                your travel</h1>
+            <div class="line"></div>
+            <p>Etiam facilisis, sapien quis porta dignissim, orci nisi pharetra dui, varius vehicula ligula nulla
+                sit amet lorem. Aenean in vestibulum quam. Cras commodo varius neque, non gravida diam ultrices nec.
+                Cras nulla mauris, fermentum nec libero in.</p>
+            <button class="btn">Explore</button>
+        </article>
+
     </section>
+
+
     <section id="video" class="videosTravel"></section>
     <section id="destinations" class="categoriesTravel"></section>
     <section class="experiencesTravelles"></section>
     <section id="booking" class="bookingTravel"></section>
-    <footer class="footer"></footer>
+    <footer></footer>
+
+
 
     <script src="script.js"></script>
 </body>
