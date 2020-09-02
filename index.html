@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"> -->
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
         integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
         crossorigin="anonymous" />
@@ -15,11 +17,11 @@
 <body>
 
     <header class="header">
-        <div class="headerTop">
+        <div class="wrapper">
             <div class="logo">
                 <img src="img/logo.png" alt="Logo">
             </div>
-            <nav>
+            <nav class="navHeader">
                 <ul class="nav">
                     <li class="navItem"><a href="#home" class="navLink active">Home</a></li>
                     <li class="navItem"><a href="#video" class="navLink">Video</a></li>
@@ -31,100 +33,334 @@
         </div>
     </header>
 
-    <div class="headerSignUp">
-        <h1 class="titleHeader">Travel around the world</h1>
-        <p>Plan and book your perfect trip with expert advice,
-            travel tips, destination information and
-            inspiration from us.</p>
-        <button class="btn">Sign Up Now</button>
-    </div>
-
-    <div class="headerImageRight">
-        <img src="img/headerImageRight.png" alt="">
-    </div>
-
-    <div class="headerImageLeft">
-        <img src="img/headerImageLeft.png" alt="">
-    </div>
-
-
-    <section class="listTravel">
-
-        <div class="listPlaces">
-            <ul class="places">
-                <li class="place">
-                    <div class="pricePlace">780$</div>
-                    <div class="namePlace">Kuramathi, Maldives</div>
-                    <div class="imagePlace"><img src="img/place1.png" alt="Place1"></div>
-                    <div class="dataPlace">
-                        <div class="rating"></div>
-                        <div class="duration">7 days tour</div>
-                    </div>
-                </li>
-                <li class="place activePlace">
-                    <div class="pricePlace">640$</div>
-                    <div class="namePlace">Kathmandu, Nepal</div>
-                    <div class="imagePlace"><img src="img/place2.png" alt="Place2"></div>
-                    <div class="dataPlace">
-                        <div class="rating"></div>
-                        <div class="duration">7 days tour</div>
-                    </div>
-                </li>
-                <li class="place">
-                    <div class="pricePlace">560$</div>
-                    <div class="namePlace">Raja Ampat, Indonesia</div>
-                    <div class="imagePlace"><img src="img/place3.png" alt="Place3"></div>
-                    <div class="dataPlace">
-                        <div class="rating"></div>
-                        <div class="duration">7 days tour</div>
-                    </div>
-                </li>
-                <li class="place">
-                    <div class="pricePlace">780$</div>
-                    <div class="namePlace">Kuramathi, Maldives</div>
-                    <div class="imagePlace"><img src="img/place2.png" alt="Place2"></div>
-                    <div class="dataPlace">
-                        <div class="rating"></div>
-                        <div class="duration">7 days tour</div>
-                    </div>
-                </li>
-                <li class="place">
-                    <div class="pricePlace">780$</div>
-                    <div class="namePlace">Kuramathi, Maldives</div>
-                    <div class="imagePlace"><img src="img/place3.png" alt="Place3"></div>
-                    <div class="dataPlace">
-                        <div class="rating"></div>
-                        <div class="duration">7 days tour</div>
-                    </div>
-                </li>
-            </ul>
-            <div class="navigation">
-                <img src="img/prev.png" class="arrow prev" alt="Prev">
-                <img src="img/next.png" class="arrow next" alt="Next">
+    <section class="signUp">
+        <div class="container">
+            <div class="headerSignUp">
+                <h1 class="titleHeader">Travel around the world</h1>
+                <p>Plan and book your perfect trip with expert advice,
+                    travel tips, destination information and
+                    inspiration from us.</p>
+                <button class="btn">Sign Up Now</button>
+            </div>
+            <div class="imgRight">
+                <img src="img/headerImageRight.png" alt="">
             </div>
         </div>
 
-        <article class="listTravelArticle">
-            <h1 class="title">Amazing places to enjoy
-                your travel</h1>
-            <div class="line"></div>
-            <p>Etiam facilisis, sapien quis porta dignissim, orci nisi pharetra dui, varius vehicula ligula nulla
-                sit amet lorem. Aenean in vestibulum quam. Cras commodo varius neque, non gravida diam ultrices nec.
-                Cras nulla mauris, fermentum nec libero in.</p>
-            <button class="btn">Explore</button>
-        </article>
-
     </section>
 
+    <section class="listTravel">
+        <div class="container">
+            <div class="listPlaces">
+                <div class="placesContainer">
+                    <div class="places">
+                        <div class="place">
+                            <div class="imagePlace">
+                                <div class="pricePlace">780$</div>
+                                <div class="namePlace">Kuramathi, Maldives</div>
+                                <img src="img/place1.png" alt="Place1">
+                            </div>
+                            <div class="dataPlace">
+                                <div class="rating">
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="far fa-star"></span>
+                                    <span class="far fa-star"></span>
+                                </div>
+                                <div class="duration">7 days tour</div>
+                            </div>
+                        </div>
+                        <div class="place activeClass">
+                            <div class="imagePlace">
+                                <img src="img/place2.png" alt="Place2">
+                                <div class="pricePlace">640$</div>
+                                <div class="namePlace">Kathmandu, Nepal</div>
+                            </div>
+                            <div class="dataPlace">
+                                <div class="rating">
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="far fa-star"></span>
+                                    <span class="far fa-star"></span>
+                                </div>
+                                <div class="duration">7 days tour</div>
+                            </div>
+                        </div>
+                        <div class="place">
+                            <div class="imagePlace">
+                                <img src="img/place3.png" alt="Place3">
+                                <div class="pricePlace">560$</div>
+                                <div class="namePlace">Raja Ampat, Indonesia</div>
+                            </div>
+                            <div class="dataPlace">
+                                <div class="rating">
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="far fa-star"></span>
+                                    <span class="far fa-star"></span>
+                                </div>
+                                <div class="duration">7 days tour</div>
+                            </div>
+                        </div>
+                        <div class="place">
+                            <div class="imagePlace">
+                                <img src="img/place2.png" alt="Place2">
+                                <div class="pricePlace">780$</div>
+                                <div class="namePlace">Kuramathi, Maldives</div>
+                            </div>
+                            <div class="dataPlace">
+                                <div class="rating">
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="far fa-star"></span>
+                                    <span class="far fa-star"></span>
+                                </div>
+                                <div class="duration">7 days tour</div>
+                            </div>
+                        </div>
+                        <div class="place">
+                            <div class="imagePlace">
+                                <img src="img/place3.png" alt="Place3">
+                                <div class="pricePlace">780$</div>
+                                <div class="namePlace">Kuramathi, Maldives</div>
+                            </div>
+                            <div class="dataPlace">
+                                <div class="rating">
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="far fa-star"></span>
+                                    <span class="far fa-star"></span>
+                                </div>
+                                <div class="duration">7 days tour</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="navigation">
+                    <button class="prevPlace arrow"> <i class="fal fa-arrow-left"></i></button>
+                    <button class="nextPlace arrow"><i class="fal fa-arrow-right"></i></button>
+                </div>
+            </div>
+            <article class="listTravelArticle">
+                <h1 class="title">Amazing places to enjoy
+                    your travel</h1>
+                <div class="line"></div>
+                <p>Etiam facilisis, sapien quis porta dignissim, orci nisi pharetra dui, varius vehicula ligula nulla
+                    sit amet lorem. Aenean in vestibulum quam. Cras commodo varius neque, non gravida diam ultrices nec.
+                    Cras nulla mauris, fermentum nec libero in.</p>
+                <button class="btn">Explore</button>
+            </article>
+        </div>
+     
+    </section>
 
-    <section id="video" class="videosTravel"></section>
-    <section id="destinations" class="categoriesTravel"></section>
-    <section class="experiencesTravelles"></section>
-    <section id="booking" class="bookingTravel"></section>
-    <footer></footer>
+    <section id="video" class="videosTravel">
+        <div class="wrapper">
+            <article class="videosTravelArticle">
+                <h1 class="title">Featured videos</h1>
+                <div class="line"></div>
+                <p>Aliquam sodales vitae ex tincidunt consectetur. Etiam eleifend malesuada magna, at imperdiet justo
+                    euismod eu. Aliquam vel imperdet mi, et convallis eros. Duis fermentum fringilla nisl at vulputate.
+                    Nunc nec lorem faucibus, molestie nisi id, elementum sem. Sed
+                    vulputate tempor augue a efficitur urna, ultrices eu. Duis vel turpis et arcu.</p>
+            </article>
+
+            <div class="videos">
+                <div class="mainVideo">
+                    <div class="responsive">
+                        <iframe src="https://www.youtube.com/embed/S6hFzh7liDQ" frameborder="0"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="otherVideos">
+                    <div class="video">
+                        <iframe src="https://www.youtube.com/embed/S6hFzh7liDQ" frameborder="0"
+                            allowfullscreen></iframe>
+                        <div class="dataVideo">
+                            <h2>When go to Maldives</h2>
+                            <h3>03:55</h3>
+                        </div>
+                    </div>
+                    <div class="video">
+                        <iframe src="https://www.youtube.com/embed/S6hFzh7liDQ" frameborder="0"
+                            allowfullscreen></iframe>
+                        <div class="dataVideo">
+                            <h2>When go to Maldives</h2>
+                            <h3>03:55</h3>
+                        </div>
+                    </div>
+                    <div class="video">
+                        <iframe src="https://www.youtube.com/embed/S6hFzh7liDQ" frameborder="0"
+                            allowfullscreen></iframe>
+                        <div class="dataVideo">
+                            <h2>When go to Maldives</h2>
+                            <h3>03:55</h3>
+                        </div>
+                    </div>
+                    <div class="video">
+                        <iframe src="https://www.youtube.com/embed/S6hFzh7liDQ" frameborder="0"
+                            allowfullscreen></iframe>
+                        <div class="dataVideo">
+                            <h2>When go to Maldives</h2>
+                            <h3>03:55</h3>
+                        </div>
+                    </div>
+                    <div class="video">
+                        <iframe src="https://www.youtube.com/embed/S6hFzh7liDQ" frameborder="0"
+                            allowfullscreen></iframe>
+                        <div class="dataVideo">
+                            <h2>When go to Maldives</h2>
+                            <h3>03:55</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="destinations" class="categoriesTravel">
+        <div class="wrapper">
+            <article class="categoriesTravelArticle">
+                <h1 class="title">Travel categories</h1>
+                <div class="line"></div>
+                <p>Maecenas et eros non quam ultricies interdum. Proin ac dolor vel neque ullamcorper blandit vitae et
+                    felis. Morbi ante urna, imperdiet vel neque vitae, porta ullamcorper metus. Quisque bibendum
+                    venenatis eros sed commodo. Nullam ultrices tortor non diam ullamcorper auctor. In urna tellus,
+                    auctor sit amet est ut, scelerisque volutpat diam.</p>
+            </article>
+        </div>
+        <div class="galleryCategories">
+            <div class="galleryContainer">
+                <div class="imagesCategory">
+                    <div class="category">
+                        <img class="imageCategory" src="img/categ2.png" alt="">
+                        <p class="titleCateg">Beaches, coast and island</p>
+                    </div>
+                    <div class="category">
+                        <p class="titleCateg">Beaches, coast and island</p>
+                        <img class="imageCategory" src="img/categ3.png" alt="">
+                    </div>
+                    <div class="category activeClass">
+                        <p class="titleCateg"> Art and culture</p>
+                        <img class="imageCategory" src="img/categ4.png" alt="">
+                    </div>
+                    <div class="category">
+                        <p class="titleCateg">Beaches, coast and island</p>
+                        <img class="imageCategory" src="img/categ3.png" alt="">
+                    </div>
+                    <div class="category">
+                        <p class="titleCateg">Beaches, coast and island</p>
+                        <img class="imageCategory" src="img/categ4.png" alt="">
+                    </div>
+                    <div class="category">
+                        <p class="titleCateg">Beaches, coast and island</p>
+                        <img class="imageCategory" src="img/categ2.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper">
+            <button class="prevCateg arrow"> <i class="fal fa-arrow-left"></i></button>
+            <button class="nextCateg arrow"><i class="fal fa-arrow-right"></i></button>
+        </div>
+    </section>
+
+    <section class="experiencesTraveles">
+        <div class="wrapper">
+            <article class="experiencesTravelArticle">
+                <h1 class="title">Traveller’s experiences</h1>
+                <div class="line"></div>
+                <blockquote>“Curabitur posuere ullamcorper pulvinar. Donec dignissim bibendum leo, at faucibus enim
+                    aliquam eu. Nullam quis pulvinar diam, ac elementum urna. Integer id vehicula tortor, nec pulvinar
+                    libero. Ut elit elit, fringilla a nisi ut, dapibus eleifend quam.” </blockquote>
+            </article>
+
+            <div class="trevellers">
+                <div class="treveller">
+                    <img src="/img/trev1.png" alt="">
+                    <div class="nameTreveller">Donquixote Law</div>
+                    <div class="position">Treveller</div>
+                </div>
+                <div class="treveller">
+                    <img src="/img/trev2.png" alt="">
+                    <div class="nameTreveller">Alex Law</div>
+                    <div class="position">Treveller</div>
+                </div>
+                <div class="treveller">
+                    <img src="/img/trev3.png" alt="">
+                    <div class="nameTreveller">Dmitro Law</div>
+                    <div class="position">Treveller</div>
+                </div>
+                <div class="treveller">
+                    <img src="/img/trev4.png" alt="">
+                    <div class="nameTreveller">Agneshka Law</div>
+                    <div class="position">Treveller</div>
+                </div>
+                <button class="prevTreveller arrow"> <i class="fal fa-arrow-left"></i></button>
+                <button class="nextTreveller arrow"><i class="fal fa-arrow-right"></i></button>
+            </div>
+
+            <div class="indicators">
+                <span class="lineIndicator active"></span>
+                <span class="lineIndicator"></span>
+                <span class="lineIndicator"></span>
+                <span class="lineIndicator"></span>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" class="bookingTravel">
+        <div class="banner">
+            <div class="wrapper">
+                <div class="slogan">We will se you</div>
+                <div class="action">Enjoy 30% Off On First Trip</div>
+                <form name="form" class="form">
+                    <select class="destinationsForm" name="destinationsForm" id="">
+                        <option value="DestinationsForm">Destinations</option>
+                    </select>
+                    <select class="packageForm" name="packageForm" id="">
+                        <option value="">Package</option>
+                    </select>
+                    <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="datesForm" placeholder="Dates" name="datesForm" id="">
+                    <button class="bookNow">Book Now</button>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="wrapper">
+            <nav>
+                <ul class="navFooter">
+                    <li class="navItemFooter"><a href="#home" class="navLinkFooter">Home</a></li>
+                    <li class="navItemFooter"><a href="#video" class="navLinkFooter">Video</a></li>
+                    <li class="navItemFooter"><a href="#destinations" class="navLinkFooter">Destinations</a></li>
+                    <li class="navItemFooter"><a href="#booking" class="navLinkFooter">Booking</a></li>
+                    <li class="navItemFooter"><a href="#" class="navLinkFooter">Contact</a></li>
+                    <li class="navItemFooter"><a href="#" class="navLinkFooter">Pricing</a></li>
+                    <li class="navItemFooter"><a href="#" class="navLinkFooter">Privacy Policy</a></li>
+                </ul>
+            </nav>
+            <address><span>Copyright 2014 - 2018 </span>Rhea - Travel Around The World</address>
+            <div class="social">
+                <a class="youtube" href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                <a class="facebook" href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                <a class="twitter" href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
+                <a class="email" href="https://www.facebook.com/"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
 
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
 

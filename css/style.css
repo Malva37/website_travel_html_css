@@ -36,24 +36,36 @@ a {
 ul {
     list-style-type: none;
     padding-left: 0;
+    margin: 0;
 }
 
-.headerTop {
+.wrapper {
+    max-width: 1600px;
+    margin: 0 160px;
+    text-align: center;
+}
+
+.header {
+    padding-top: 71px;
+    padding-bottom: 95px;
+}
+
+.header .wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 71px;
-    margin: 0 auto;
 
 }
 
 .logo {
     cursor: pointer;
 }
-.logo img{
+
+.logo img {
     background: no-repeat;
 }
-nav {
+
+.navHeader {
     display: flex;
 }
 
@@ -73,12 +85,15 @@ nav {
     font-family: "Nunito";
     font-size: 20px;
 }
-.navItem{
+
+.navItem {
     margin-left: 60px;
 }
-.navItem:first-child{
+
+.navItem:first-child {
     margin-left: 0;
 }
+
 .navLink.active {
     color: #4497f3;
     font-family: "Nunito - Semi Bold";
@@ -94,36 +109,25 @@ nav {
 }
 
 
+/* header */
+
+
+.signUp {
+    position: relative;
+}
+
+.signUp .container {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 160px;
+}
+
 .headerSignUp {
-    padding: 324px 0 481px;
+    padding-top: 226px;
+    margin-bottom: 318px;
     max-width: 514px;
     z-index: 1;
 }
-
-.headerImageRight {
-    position: absolute;
-    width: 1050px;
-    right: 0;
-    top: 200px;
-    z-index: -1;
-
-}
-.headerImageRight img{
-    width: 100%;
-}
-
-.headerImageLeft {
-    position: absolute;
-    top: 1025px;
-    width: 247px;
-    z-index: -1;
-}
-
-.headerImageLeft img{
-    width: 100%;
-}
-
-
 
 
 .titleHeader {
@@ -132,6 +136,8 @@ nav {
     font-size: 75px;
     font-weight: 400;
     line-height: 80px;
+    letter-spacing: -3px;
+    margin: 0;
 
 }
 
@@ -142,7 +148,7 @@ nav {
     font-weight: 400;
     line-height: 35px;
     letter-spacing: 0.22px;
-    padding: 76px 0 96px;
+    margin: 76px 0 96px;
 }
 
 .btn {
@@ -159,14 +165,43 @@ nav {
 
 
 
-/* header */
+
+.signUp .container .imgRight {
+    max-width: 1600px;
+
+}
+
+.signUp .container .imgRight img {
+    width: 100%;
+}
 
 
+.signUp::before {
+    content: url(/img/headerImageLeft.png);
+    display: block;
+    position: absolute;
+    top: 650px;
+}
+
+
+/* signUp */
+
+
+.listTravel {
+    position: relative;
+    padding-top: 230px;
+    padding-bottom: 254px;
+}
+
+.listTravel .container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 160px 0 0;
+}
 
 .listTravelArticle {
     max-width: 574px;
-    margin-left: 140px;
-    float: right;
+    margin-left: 135px;
 }
 
 .title {
@@ -177,6 +212,12 @@ nav {
     font-weight: 400;
     line-height: 62px;
     letter-spacing: 0.13px;
+}
+
+.listTravelArticle .title~p {
+    margin: 0 0 61px;
+    max-width: 559px;
+
 }
 
 .listTravelArticle .line {
@@ -192,36 +233,40 @@ nav {
 
 }
 
-
 .title~p {
     color: #81858e;
     font-family: "Nunito Sans";
     font-size: 22px;
     font-weight: 400;
     line-height: 42px;
-    letter-spacing: 0.22px;
-    margin-bottom: 61px;
+    letter-spacing: -0.6px;
+    margin: 0;
 }
 
+
 .listPlaces {
-    max-width: 1050px;
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    left: 0;
+    max-width: 1044px;
+    min-width: 888px;
+}
+
+.placesContainer {
+    overflow: hidden;
 }
 
 .places {
     display: flex;
-    justify-content: space-between;
-    overflow: hidden;
-    margin: 0;
+    transition: 0.2s;
 
 }
 
 .place {
-    margin-left: 37px;
+    margin-left: 38px;
     position: relative;
+
+}
+
+.place:first-child {
+    margin-left: 0;
 
 }
 
@@ -229,18 +274,31 @@ nav {
     display: none;
 }
 
-.activePlace>.dataPlace {
-    display: block;
+.activeClass .dataPlace {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 21px;
 }
 
-.activePlace {
-    bottom: 73px;
+.activeClass .duration {
+    color: #a0a0a0;
+    font-family: "Nunito Sans - Semi Bold";
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0.24px;
 }
 
+.places .activeClass {
+    bottom: 31px;
+}
 
+.far {
+    color: #3984f3;
+}
 
-.place:first-child {
-    margin-left: 0;
+.fa {
+    color: #3984f3;
 }
 
 .imagePlace {
@@ -251,7 +309,8 @@ nav {
     z-index: -1;
     display: block;
     position: relative;
-    max-width: 372px;
+    width: 100%;
+    height: 500px;
 }
 
 .pricePlace {
@@ -270,29 +329,433 @@ nav {
 
 .namePlace {
     position: absolute;
-    bottom: 29px;
+    bottom: 73px;
     left: 25px;
     z-index: 1;
     color: #ffffff;
     font-family: "Nunito Sans";
     font-size: 23px;
     font-weight: 400;
-    line-height: 42px;
 }
 
 .navigation {
-    padding: 78px 0 254px;
-    margin-left: 30px;
-    display: flex;
+    padding-top: 78px;
+    margin-left: 160px;
+
 
 }
 
 .arrow {
     width: 39px;
     height: 28px;
-    /* background-color: #a0a0a0; */
+    color: #a0a0a0;
+    border: none;
+    background-color: white;
+    cursor: pointer;
 }
 
-.prev {
+.arrow:disabled {
+    opacity: 0.5;
+}
+
+.prevPlace,
+.prevCateg {
     margin-right: 62px;
+}
+
+/* listTravel */
+
+
+.videosTravel {
+    padding-bottom: 251px;
+
+}
+
+.videosTravelArticle .title~p {
+    margin: 0 auto 100px;
+    max-width: 1214px;
+    letter-spacing: -0.74px;
+
+}
+
+.videosTravelArticle .line {
+    margin: 45px auto 58px;
+
+}
+
+.videos {
+    display: flex;
+
+}
+
+.mainVideo {
+    max-width: 1072px;
+    width: -webkit-fill-available;
+    margin-right: 15px;
+}
+
+.responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+}
+
+.responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+
+}
+
+
+.otherVideos {
+    max-width: 517px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    max-height: 530px;
+    padding-right: 15px;
+
+}
+
+.video {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 21px;
+    text-align: start;
+}
+
+
+.video iframe {
+    width: 40%;
+    height: 113px;
+}
+
+.video h2 {
+    color: #091e40;
+    font-family: "Nunito Sans - Semi Bold";
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: 0.14px;
+    margin: 12px 0 20px;
+
+}
+
+.video h3 {
+    opacity: 0.7;
+    color: #091e40;
+    font-family: "Nunito Sans";
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.11px;
+}
+
+.dataVideo {
+    width: 56%;
+    margin-left: 20px;
+}
+
+/* videosTravel */
+
+.categoriesTravel {
+    padding-bottom: 249px;
+}
+
+.categoriesTravelArticle {
+    max-width: 1202px;
+    margin: 0 auto 175px;
+    text-align: center;
+}
+
+.categoriesTravelArticle .line {
+    margin: 36px auto 58px;
+}
+
+.galleryCategories {
+    margin: 0 auto 96px;
+
+}
+
+.galleryContainer {
+    overflow: hidden;
+}
+
+.imagesCategory {
+    display: flex;
+    transition: 0.2s;
+
+}
+
+.category {
+    height: 500px;
+    border: 1px solid #000;
+    margin: 0 38px 0 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(29, 48, 55, 0) 95%, rgba(29, 47, 55, 1) 100%);
+    position: relative;
+}
+
+.imageCategory {
+    position: absolute;
+    z-index: -1;
+    display: block;
+    position: relative;
+}
+
+.titleCateg {
+    position: absolute;
+    bottom: 38px;
+    left: 41px;
+    color: #ffffff;
+    font-family: "Nunito Sans";
+    font-size: 28px;
+    font-weight: 400;
+    margin: 0;
+    letter-spacing: 0.26px;
+    z-index: 1;
+
+}
+
+.imagesCategory .activeClass {
+    bottom: 59px;
+}
+
+
+/* categoriesTravel */
+.experiencesTraveles {
+    padding-bottom: 251px;
+}
+
+.experiencesTravelArticle {
+    max-width: 1051px;
+    margin: 0 auto 79px;
+}
+
+.experiencesTravelArticle .line {
+    margin: 34px auto 81px;
+}
+
+blockquote {
+    color: #091e40;
+    font-family: "Nunito Sans";
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 50px;
+    letter-spacing: -0.26px;
+    margin: 0
+}
+
+.trevellers {
+    max-width: 550px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.treveller {
+    text-align: center;
+    display: none;
+}
+
+.treveller:first-child {
+    display: block;
+}
+
+.nameTreveller {
+    margin: 40px auto 18px;
+    color: #2b323a;
+    font-family: "Nunito Sans";
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.position {
+    color: #2b323a;
+    font-family: "Nunito Sans";
+    font-size: 20px;
+    font-weight: 400;
+
+}
+
+.current {
+    display: block;
+}
+
+.prevTreveller,
+.nextTreveller {
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+}
+
+.nextTreveller {
+    right: 0;
+    left: 100%;
+}
+
+.indicators {
+    max-width: 225px;
+    margin: 57px auto 0;
+    display: flex;
+}
+
+.lineIndicator {
+    width: 38px;
+    height: 3px;
+    background-color: #7185de;
+    opacity: 0.3;
+    margin-left: 17px;
+}
+
+.lineIndicator:first-child {
+    margin-left: 0;
+}
+
+.indicators .active {
+    background-color: #3984f3;
+    opacity: 1;
+    width: 60px;
+}
+
+/* experiencesTraveles */
+
+.bookingTravel {
+    background-color: #1d3037;
+}
+
+.banner {
+    background: url(/img/bg_booking.png) no-repeat;
+    padding: 313px 0;
+    background-size: cover;
+}
+
+.slogan {
+    color: #ffffff;
+    font-family: "Nunito Sans - Semi Bold";
+    font-size: 39px;
+    font-weight: 400;
+    text-align: center;
+
+}
+
+.action {
+    color: #ffffff;
+    font-family: "Nunito Sans - Extra Bold";
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 0.98px;
+    margin: 34px auto 87px;
+    text-align: center;
+
+}
+
+.form {
+    max-width: 1557px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.form select,
+.datesForm {
+    background-color: rgba(255, 255, 255, .3);
+    border: none;
+    color: #ffffff;
+    font-family: "Nunito Sans - Semi Bold";
+    font-size: 24px;
+    font-weight: 400;
+    padding-left: 41px;
+    width: 21%;
+}
+
+.datesForm {
+    background: url('/img/dates.png') no-repeat;
+    background-size: 14px;
+    background-position: calc(100% - 47px) center;
+    background-repeat: no-repeat;
+    background-color: rgba(255, 255, 255, .3);
+
+}
+
+::placeholder {
+    color: white;
+}
+
+.packageForm,
+.destinationsForm {
+    background: url('/img/sort_white.png') no-repeat;
+    background-size: 12px;
+    background-position: calc(100% - 47px) center;
+    background-repeat: no-repeat;
+}
+
+.bookNow {
+    padding: 27px 125px 25px 124px;
+    background-color: #3984f3;
+    border: none;
+    color: #ffffff;
+    font-family: "Nunito Sans - Semi Bold";
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 45.7px;
+
+}
+
+.navFooter {
+    margin: 75px auto 40px;
+    max-width: 780px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.navItemFooter {
+    margin-left: 45px;
+    color: #2b323a;
+    font-family: "Nunito Sans";
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.navItemFooter:first-child {
+    margin-left: 0;
+}
+
+address {
+    text-align: center;
+    color: #c6c6c6;
+    font-family: "Nunito Sans - Semi Bold";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 49.83px;
+    letter-spacing: 0.38px;
+    margin-bottom: 25px;
+}
+
+address span {
+    color: #2b323a;
+}
+
+.social {
+    display: flex;
+    max-width: 260px;
+    margin: 0 auto 80px;
+}
+
+.social a {
+    color: white;
+    margin-left: 24px;
+    background-color: #3984f3;
+    border-radius: 50% 50%;
+    width: 47px;
+    height: 47px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.social a:first-child {
+    margin-left: 0;
 }

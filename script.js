@@ -1,53 +1,144 @@
-// let i = 1;
-// for (let li of carousel.querySelectorAll('li')) {
-//     li.style.position = 'relative';
-//     li.insertAdjacentHTML('beforeend', `<span style="position:absolute;left:0;top:0">${i}</span>`);
-//     i++;
-// }
+$(document).ready(function () {
 
-// /* конфигурация */
-// let width = 500; // ширина картинки
-// let count = 1; // видимое количество изображений
-
-// let list = carousel.querySelector('ul');
-// let listElems = carousel.querySelectorAll('li');
-
-// let position = 0; // положение ленты прокрутки
-
-// carousel.querySelector('.prev').onclick = function () {
-//     // сдвиг влево
-//     position += width * count;
-//     // последнее передвижение влево может быть не на 3, а на 2 или 1 элемент
-//     position = Math.min(position, 0)
-//     list.style.marginLeft = position + 'px';
-// };
-
-// carousel.querySelector('.next').onclick = function () {
-//     // сдвиг вправо
-//     position -= width * count;
-//     // последнее передвижение вправо может быть не на 3, а на 2 или 1 элемент
-//     position = Math.max(position, -width * (listElems.length - count));
-//     list.style.marginLeft = position + 'px';
-// };
-
-
-
-
-
-
-
-
-
-
-let links = document.querySelectorAll('.place');
-console.log(links);
-
-links.forEach(elem => {
-    elem.onclick = () => {
-        console.log(elem);
-        links.forEach(link => {
-            link.classList.remove('activePlace');
+    let activeClass = (collection) => {
+        collection.each(function (index, elem) {
+            $(elem).click(function () {
+                collection.each(function (index, elem) {
+                    $(elem).removeClass("activeClass");
+                })
+                $(this).addClass("activeClass")
+            })
         })
-        elem.classList.add('activePlace');
     }
+    activeClass($('.category'));
+    activeClass($('.place'));
+
+
+    let positionPlaces = 0;
+    let position = 0;
+
+    const slideToShowPlaces = 3;
+    const slideToScrollPlaces = 1;
+    const slideToShow = 5;
+    const slideToScroll = 1;
+
+    let containerPlaces = $('.placesContainer');
+    let places = $('.places');
+    let place = $('.place');
+    let prevPlace = $('.prevPlace');
+    let nextPlace = $('.nextPlace');
+
+    let container = $('.galleryContainer');
+    let categories = $('.imagesCategory');
+    let category = $('.imageCategory');
+    let prevCateg = $('.prevCateg');
+    let nextCateg = $('.nextCateg');
+
+    let placeCount = place.length;
+    let categoryCount = category.length;
+
+    const categoryWidth = container.width() / slideToShow;
+    const placeWidth = containerPlaces.width() / slideToShowPlaces;
+
+    let movePosition = slideToScroll * categoryWidth;
+    let movePositionPlace = slideToScrollPlaces * placeWidth;
+
+    place.each(function (index, elem) {
+        $(elem).css({
+            minWidth: placeWidth
+        })
+    });
+
+    category.each(function (index, elem) {
+        $(elem).css({
+            minWidth: categoryWidth
+        })
+    });
+
+    let checkBtn = () => {
+        prevCateg.prop('disabled', position === 0);
+        prevPlace.prop('disabled', positionPlaces === 0);
+        nextCateg.prop(
+            'disabled',
+            position <= -(categoryCount - slideToShow) * categoryWidth
+        );
+        nextPlace.prop(
+            'disabled',
+            positionPlaces <= -(placeCount - slideToShowPlaces) * placeWidth
+        );
+    }
+    checkBtn();
+    const setPositionPlaces = () => {
+        places.css({
+            transform: `translateX(${positionPlaces}px)`
+        })
+    }
+
+    prevPlace.click(function () {
+        positionPlaces += movePositionPlace;
+        setPositionPlaces();
+        checkBtn();
+    })
+
+    nextPlace.click(function () {
+        positionPlaces -= movePositionPlace;
+        setPositionPlaces();
+        checkBtn();
+
+    })
+
+
+
+
+    prevCateg.click(function () {
+        position += movePosition;
+        setPosition();
+        checkBtn();
+    })
+
+    nextCateg.click(function () {
+        position -= movePosition;
+        setPosition();
+        checkBtn();
+        console.log(position);
+
+    })
+
+    const setPosition = () => {
+        categories.css({
+            transform: `translateX(${position}px)`
+        })
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 })
