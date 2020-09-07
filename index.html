@@ -16,6 +16,8 @@
 
 <body>
 
+    
+
     <header class="header">
         <div class="wrapper">
             <div class="logo">
@@ -158,7 +160,7 @@
         </div>
      
     </section>
-
+<!-- 
     <section id="video" class="videosTravel">
         <div class="wrapper">
             <article class="videosTravelArticle">
@@ -221,7 +223,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section id="destinations" class="categoriesTravel">
         <div class="wrapper">
@@ -319,19 +321,27 @@
             <div class="wrapper">
                 <div class="slogan">We will se you</div>
                 <div class="action">Enjoy 30% Off On First Trip</div>
-                <form name="form" class="form">
-                    <select class="destinationsForm" name="destinationsForm" id="">
-                        <option value="DestinationsForm">Destinations</option>
-                    </select>
-                    <select class="packageForm" name="packageForm" id="">
-                        <option value="">Package</option>
-                    </select>
-                    <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="datesForm" placeholder="Dates" name="datesForm" id="">
-                    <button class="bookNow">Book Now</button>
-                </form>
-
             </div>
+            <form name="form" class="form">
+                <select class="destinationsForm" name="destinationsForm" id="">
+                    <option  selected disabled hidden>Destinations</option>
+                    <option>Kuramathi, Maldives</option>
+                    <option>Kathmandu, Nepal</option>
+                    <option >Raja Ampat, Indonesia</option>
+                </select>
+                <select class="packageForm" name="packageForm" id="">
+                    <option  selected disabled hidden>Package</option>
+                    <option>Food</option>
+                    <option>Backpacking</option>
+                    <option >Beaches, coast</option>
+                    <option >Art and culture</option>
+                    <option >Wildlife</option>
+                </select>
+                <input type="text" class="datesForm" placeholder="Dates" name="datesForm" id="">
+                <button class="bookNow">Book Now</button>
+            </form>
         </div>
+       
     </section>
 
     <footer class="footer">
