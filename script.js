@@ -13,13 +13,11 @@ $(document).ready(function () {
     activeClass($('.category'));
     activeClass($('.place'));
 
-
     let positionPlaces = 0;
     let position = 0;
 
     const slideToShowPlaces = 3;
-    const slideToScrollPlaces = 1;
-    const slideToShow = 5;
+    const slideToShow = 4;
     const slideToScroll = 1;
 
     let containerPlaces = $('.placesContainer');
@@ -30,34 +28,63 @@ $(document).ready(function () {
 
     let container = $('.galleryContainer');
     let categories = $('.imagesCategory');
-    let category = $('.imageCategory');
+    let category = $('.category');
     let prevCateg = $('.prevCateg');
     let nextCateg = $('.nextCateg');
+
+
+
+    let treveller = $('.treveller');
+    let indicator = $('.lineIndicator');
+    let prevTrev = $('.prevTreveller');
+    let nextTrev = $('.nextTreveller');
+    let indexCurrent = 0;
 
     let placeCount = place.length;
     let categoryCount = category.length;
 
-    const categoryWidth = container.width() / slideToShow;
-    const placeWidth = containerPlaces.width() / slideToShowPlaces;
+    let marginLeftPlaces = containerPlaces.width() * 0.06;
+    let marginLeftCategories = container.width() * 0.018;
 
-    let movePosition = slideToScroll * categoryWidth;
-    let movePositionPlace = slideToScrollPlaces * placeWidth;
+    const placeWidth = containerPlaces.width() / slideToShowPlaces;
+    const categoryWidth = container.width() / slideToShow;
+
+    let movePositionPlace = slideToScroll * (placeWidth + marginLeftPlaces);
+    let movePosition = slideToScroll * (categoryWidth + marginLeftCategories);
 
     place.each(function (index, elem) {
-        $(elem).css({
-            minWidth: placeWidth
-        })
+        if (index == 0) {
+            $(elem).css({
+                minWidth: placeWidth,
+                marginLeft: -placeWidth / 2
+            })
+        } else {
+            $(elem).css({
+                minWidth: placeWidth,
+                marginLeft: marginLeftPlaces
+            })
+        }
     });
 
     category.each(function (index, elem) {
-        $(elem).css({
-            minWidth: categoryWidth
-        })
+        if (index == 0) {
+            $(elem).css({
+                minWidth: categoryWidth,
+                marginLeft: -categoryWidth / 2
+            })
+        } else {
+            $(elem).css({
+                minWidth: categoryWidth,
+                marginLeft: marginLeftCategories
+            })
+        }
     });
 
+
     let checkBtn = () => {
-        prevCateg.prop('disabled', position === 0);
-        prevPlace.prop('disabled', positionPlaces === 0);
+        prevCateg.prop('disabled', position >= categoryWidth / 2);
+        prevPlace.prop('disabled', positionPlaces >= placeWidth / 2);
+        prevTrev.prop('disabled', indexCurrent == 0);
         nextCateg.prop(
             'disabled',
             position <= -(categoryCount - slideToShow) * categoryWidth
@@ -66,49 +93,80 @@ $(document).ready(function () {
             'disabled',
             positionPlaces <= -(placeCount - slideToShowPlaces) * placeWidth
         );
+        nextTrev.prop('disabled', indexCurrent >= treveller.length - 1);
+
     }
     checkBtn();
-    const setPositionPlaces = () => {
-        places.css({
-            transform: `translateX(${positionPlaces}px)`
-        })
-    }
 
     prevPlace.click(function () {
         positionPlaces += movePositionPlace;
-        setPositionPlaces();
+        setPosition(positionPlaces, places);
         checkBtn();
     })
 
     nextPlace.click(function () {
         positionPlaces -= movePositionPlace;
-        setPositionPlaces();
+        setPosition(positionPlaces, places);
         checkBtn();
-
     })
-
-
 
 
     prevCateg.click(function () {
         position += movePosition;
-        setPosition();
+        setPosition(position, categories);
         checkBtn();
+
     })
 
     nextCateg.click(function () {
         position -= movePosition;
-        setPosition();
+        setPosition(position, categories);
         checkBtn();
-        console.log(position);
+
 
     })
 
-    const setPosition = () => {
-        categories.css({
-            transform: `translateX(${position}px)`
+    const setPosition = (pos, list) => {
+        list.css({
+            transform: `translateX(${pos}px)`
         })
     }
+
+    // lineIndicator
+
+    nextTrev.click(function () {
+        indexCurrent++;
+        checkSlide(indexCurrent);
+        checkBtn();
+
+    })
+
+    prevTrev.click(function () {
+        indexCurrent--;
+        checkSlide(indexCurrent);
+        checkBtn();
+    })
+
+    let checkSlide = function (index) {
+        indexCurrent = index;
+        let currentSlide = treveller.eq(index);
+        currentSlide.addClass("active")
+        treveller.not(currentSlide).removeClass('active');
+        indicator.each(function (index, elem) {
+            if (index == indexCurrent) {
+                $(elem).addClass(' active');
+            } else {
+                $(elem).removeClass(' active');
+            }
+        })
+    }
+
+    indicator.click(function () {
+        indexCurrent = $(this).index();
+        checkSlide(indexCurrent)
+        checkBtn();
+
+    })
 
 
 
