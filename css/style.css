@@ -98,8 +98,9 @@ ul {
     color: #4497f3;
     font-family: "Nunito - Semi Bold";
 }
+
 .navLink:hover {
- border-bottom: 1px solid;
+    border-bottom: 1px solid;
 }
 
 .btnSignIn {
@@ -167,12 +168,12 @@ ul {
     transition: 0.5s;
 }
 
-.btn:hover{
-cursor: pointer;
--webkit-transform: scale(1.1);
--ms-transform: scale(1.1);
-transform: scale(1.1);
-transition: 0.5s;
+.btn:hover {
+    cursor: pointer;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: 0.5s;
 }
 
 
@@ -306,7 +307,7 @@ transition: 0.5s;
 }
 
 .imagePlace {
-   background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(29, 48, 55, 0) 95%, rgba(29, 47, 55, 0.2) 100%);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(29, 48, 55, 0) 95%, rgba(29, 47, 55, 0.2) 100%);
 
 }
 
@@ -395,8 +396,11 @@ transition: 0.5s;
 
 .mainVideo {
     max-width: 1072px;
+    max-width: 67%;
     width: -webkit-fill-available;
-    margin-right: 15px;
+    margin-right: 1%;
+    height: 100%;
+
 }
 
 .responsive {
@@ -404,25 +408,141 @@ transition: 0.5s;
     padding-bottom: 56.25%;
     position: relative;
     height: 0;
+    height: 100%;
+    overflow: hidden;
 }
 
-.responsive iframe {
+.responsive:hover .controls {
+    transform: translateY(0);
+    transition-duration: .2s;
+}
+
+.titleVideo {
+    color: #fff;
+    font-family: "Nunito Sans - Semi Bold";
+    font-size: 35px;
+    font-weight: 400;
+    letter-spacing: 0.15px;
+    position: absolute;
+    z-index: 2;
+    bottom: 76px;
+    left: 53px;
+    text-align: start;
+}
+
+.timeVideo {
+    opacity: 0.7;
+    color: #ffffff;
+    font-family: "Nunito Sans";
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 45.93px;
+    letter-spacing: 0.11px;
+    position: absolute;
+    z-index: 2;
+    bottom: 39px;
+    left: 53px;
+}
+
+
+.controls {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    bottom: 0;
+    height: 7%;
+    width: 100%;
+    background: rgba(254, 254, 254, 0.5);
+    transform: translateY(100%);
+
+}
+.buttonsControls button{
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline:none;
+}
+.buttonsControls button::before {
+    content: '\f144';
+    font-family: "Font Awesome 5 Pro";
+    display: inline-block;
+    color: #fff;
+    font-size: 25px;
+}
+
+.bar{
+    height: 10%;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.barSlider {
+    height: 100%;
+    width: 0;
+    background-color: orangered;
+}
+
+.buttons button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    outline:none;
+    top:43%;
+    left: 43%;
+}
+.buttons .pause{
+    transition: 2s;
+    opacity: 0;
+}
+
+.buttons button::before {
+    content: url(/img/play.png);
+    display: inline-block;
+}
+
+.buttonsControls button.play::before {
+    content: '\f144';
+    font-family: "Font Awesome 5 Pro";
+}
+
+.buttonsControls button.pause::before {
+    content: '\f28b';
+    font-family: "Font Awesome 5 Pro";
+    font-size: 25px;
+}
+.buttons button.play::before {
+    content: url(/img/play.png);
+}
+
+.buttons button.pause::before {
+    content: url(/img/pause.png);
+    width: 85px;
+    height: 85px;
+}
+
+.responsive video {
     left: 0;
     top: 0;
     height: 100%;
     width: 100%;
     position: absolute;
+    z-index: -1;
 
 }
 
 
 .otherVideos {
-    max-width: 517px;
+    max-width: 32%;
+    display: flex;
+    flex-direction: column;
+    padding-right: 15px;
+    max-width: 32%;
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
-    max-height: 530px;
-    padding-right: 15px;
+    overflow-x: hidden;
+    max-height: 460px;
 
 }
 
@@ -430,39 +550,47 @@ transition: 0.5s;
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin-bottom: 21px;
+    padding: 3%;
     text-align: start;
+    align-items: center;
+}
+.video.activeClass{
+    background-color: rgba(152, 152, 152, .15);
 }
 
 
-.video iframe {
-    width: 40%;
-    height: 113px;
+.videoFromList {
+    max-width: 40%;
+}
+.dataVideo {
+    width: 53%;
+    margin-left: 4%;
+    position: relative;
+
 }
 
-.video h2 {
+.titleVideoFromList {
     color: #091e40;
     font-family: "Nunito Sans - Semi Bold";
     font-size: 26px;
     font-weight: 400;
     letter-spacing: 0.14px;
-    margin: 12px 0 20px;
+    margin:  0 0 0;
 
 }
 
-.video h3 {
+.durationVideoFromList{
     opacity: 0.7;
     color: #091e40;
     font-family: "Nunito Sans";
     font-size: 20px;
     font-weight: 400;
     letter-spacing: 0.11px;
+    margin: 1% 0 0 0;
+
 }
 
-.dataVideo {
-    width: 56%;
-    margin-left: 20px;
-}
+
 
 /* videosTravel */
 
@@ -497,7 +625,7 @@ transition: 0.5s;
 
 .category {
     height: 500px;
-    border:none;
+    border: none;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(29, 48, 55, 0) 95%, rgba(29, 47, 55, 0.2) 100%);
     position: relative;
 
@@ -508,7 +636,7 @@ transition: 0.5s;
     z-index: -1;
     display: block;
     position: relative;
-    width: 100%; 
+    width: 100%;
     height: 100%;
 }
 
@@ -532,6 +660,7 @@ transition: 0.5s;
 
 
 /* categoriesTravel */
+
 .experiencesTraveles {
     padding-bottom: 251px;
 }
@@ -557,16 +686,15 @@ blockquote {
 
 .galleryTrevellers {
     margin: 0 auto;
-display: flex;
-justify-content: center;
-align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
 .trevellersContainer {
     overflow: hidden;
     max-width: 470px;
-    /* margin: 0 auto; */
     position: relative;
 
 }
@@ -582,7 +710,8 @@ align-items: center;
     text-align: center;
     display: none;
 }
-.treveller.active{
+
+.treveller.active {
     display: block;
     min-width: 470px;
 }
@@ -729,13 +858,14 @@ option {
     transition: 0.5s;
 
 }
-.bookNow:hover{
+
+.bookNow:hover {
     cursor: pointer;
     -webkit-transform: scale(0.9);
     -ms-transform: scale(0.9);
     transform: scale(0.9);
     transition: 0.5s;
-    }
+}
 
 .navFooter {
     margin: 75px auto 40px;
@@ -755,7 +885,8 @@ option {
 .navItemFooter:first-child {
     margin-left: 0;
 }
-.navItemFooter:hover{
+
+.navItemFooter:hover {
     font-weight: 700;
 }
 

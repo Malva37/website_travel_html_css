@@ -1,17 +1,21 @@
 $(document).ready(function () {
 
+    //                  add new class during hover on images of places/categories
+
     let activeClass = (collection) => {
         collection.each(function (index, elem) {
             $(elem).click(function () {
                 collection.each(function (index, elem) {
-                    $(elem).removeClass("activeClass");
+                    $(elem).removeClass(" activeClass");
                 })
-                $(this).addClass("activeClass")
-            })
-        })
+                $(this).addClass(" activeClass")
+            });
+        });
     }
     activeClass($('.category'));
     activeClass($('.place'));
+
+    //                  scroll of places/categories & trevellers
 
     let positionPlaces = 0;
     let position = 0;
@@ -62,7 +66,7 @@ $(document).ready(function () {
             $(elem).css({
                 minWidth: placeWidth,
                 marginLeft: marginLeftPlaces
-            })
+            });
         }
     });
 
@@ -71,12 +75,12 @@ $(document).ready(function () {
             $(elem).css({
                 minWidth: categoryWidth,
                 marginLeft: -categoryWidth / 2
-            })
+            });
         } else {
             $(elem).css({
                 minWidth: categoryWidth,
                 marginLeft: marginLeftCategories
-            })
+            });
         }
     });
 
@@ -129,7 +133,7 @@ $(document).ready(function () {
     const setPosition = (pos, list) => {
         list.css({
             transform: `translateX(${pos}px)`
-        })
+        });
     }
 
     // lineIndicator
@@ -150,7 +154,7 @@ $(document).ready(function () {
     let checkSlide = function (index) {
         indexCurrent = index;
         let currentSlide = treveller.eq(index);
-        currentSlide.addClass("active")
+        currentSlide.addClass("active");
         treveller.not(currentSlide).removeClass('active');
         indicator.each(function (index, elem) {
             if (index == indexCurrent) {
@@ -158,15 +162,95 @@ $(document).ready(function () {
             } else {
                 $(elem).removeClass(' active');
             }
-        })
+        });
     }
 
     indicator.click(function () {
         indexCurrent = $(this).index();
-        checkSlide(indexCurrent)
+        checkSlide(indexCurrent);
         checkBtn();
 
     })
+
+
+    //                  video player
+
+    let videoMain = $('.videoFile');
+    let videoBoxes = $('.video');
+    let barSlider = $('.barSlider');
+    let btn = $('.playPause');
+    let timeMainVideo = $('.timeVideo');
+    let titleVideo = $('.titleVideo');
+
+    function setMainVideoDuration(video) {
+        let duration = calculateVideoDuration(video);
+        timeMainVideo.css('display', 'block').html(duration);
+    };
+
+    function setOtherVideoDuration(videos) {
+        videos.each((ind, elem) => {
+            let videoItem = $(elem).children('.videoFromList');
+            let duration = calculateVideoDuration(videoItem);
+            // $(elem).children('.dataVideo').children('.titleVideoFromList').children('.durationVideoFromList').text(duration)
+            $(elem).find('.durationVideoFromList').text(duration);
+            console.log(duration);
+        })
+    };
+
+    function calculateVideoDuration(vid) {
+        let duration = vid.get(0).duration.toFixed(0);
+        let m = duration % 60;
+        return Math.floor(duration / 60) + ':' + (m < 10 ? '0' : '') + m;
+    };
+
+    setMainVideoDuration(videoMain);
+
+    setTimeout(function () {
+        setOtherVideoDuration(videoBoxes)
+    }, 500);
+
+
+    let tooglePlayPause = function () {
+        if (videoMain.get(0).paused) {
+            btn.removeClass("play").addClass(" pause");
+            timeMainVideo.css('display', 'none');
+            titleVideo.css('display', 'none');
+            videoMain.get(0).play();
+        } else {
+            btn.removeClass("pause").addClass(" play");
+            titleVideo.css('display', 'block');
+            timeMainVideo.css('display', 'block');
+            videoMain.get(0).pause();
+        }
+    }
+    btn.click(function () {
+        tooglePlayPause();
+    });
+
+    videoMain.bind('timeupdate', function () {
+        let sliderPos = videoMain.get(0).currentTime / videoMain.get(0).duration;
+        barSlider.css({
+            width: sliderPos * 100 + '%'
+        });
+        if (videoMain.get(0).ended) {
+            btn.removeClass("pause").addClass(" play");
+        }
+
+    });
+
+
+    videoBoxes.click(function () {
+        let videoItem = $(this).children('.videoFromList');
+        let newMainVideo = videoItem.attr('src');
+        let newMainTitle = $(this).find('.titleVideoFromList').text();
+        titleVideo.css('display', 'block').text(newMainTitle);
+        $('.videoFile').attr("src", newMainVideo);
+        btn.removeClass("pause").addClass(" play");
+        setMainVideoDuration(videoItem);
+        activeClass(videoBoxes);
+    })
+
+
 
 
 
