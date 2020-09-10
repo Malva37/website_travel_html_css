@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    //                  add new class during hover on images of places/categories
+    //                  add new class during hover on images of places/categories/videos
 
     let activeClass = (collection) => {
         collection.each(function (index, elem) {
@@ -14,6 +14,7 @@ $(document).ready(function () {
     }
     activeClass($('.category'));
     activeClass($('.place'));
+    activeClass($('.video'));
 
     //                  scroll of places/categories & trevellers
 
@@ -174,11 +175,6 @@ $(document).ready(function () {
 
 
     //                  video player
-    $(window).resize(function() {
-        var width = $(window).width();
-        var height = $(window).height();
-        console.log(width, height, window.innerWidth);
-      })
 
     let videoMain = $('.videoFile');
     let videoBoxes = $('.video');
@@ -196,7 +192,6 @@ $(document).ready(function () {
         videos.each((ind, elem) => {
             let videoItem = $(elem).children('.videoFromList');
             let duration = calculateVideoDuration(videoItem);
-            // $(elem).children('.dataVideo').children('.titleVideoFromList').children('.durationVideoFromList').text(duration)
             $(elem).find('.durationVideoFromList').text(duration);
             console.log(duration);
         })
@@ -252,7 +247,6 @@ $(document).ready(function () {
         $('.videoFile').attr("src", newMainVideo);
         btn.removeClass("pause").addClass(" play");
         setMainVideoDuration(videoItem);
-        activeClass(videoBoxes);
     })
 
 
