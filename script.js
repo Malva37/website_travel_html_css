@@ -174,6 +174,11 @@ $(document).ready(function () {
 
 
     //                  video player
+    $(window).resize(function() {
+        var width = $(window).width();
+        var height = $(window).height();
+        console.log(width, height, window.innerWidth);
+      })
 
     let videoMain = $('.videoFile');
     let videoBoxes = $('.video');
