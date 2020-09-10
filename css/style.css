@@ -425,7 +425,7 @@ ul {
     letter-spacing: 0.15px;
     position: absolute;
     z-index: 2;
-    bottom: 76px;
+    bottom: 18%;
     left: 53px;
     text-align: start;
 }
@@ -436,11 +436,10 @@ ul {
     font-family: "Nunito Sans";
     font-size: 26px;
     font-weight: 400;
-    line-height: 45.93px;
     letter-spacing: 0.11px;
     position: absolute;
     z-index: 2;
-    bottom: 39px;
+    bottom: 11%;
     left: 53px;
 }
 
@@ -450,7 +449,7 @@ ul {
     display: flex;
     flex-wrap: wrap;
     bottom: 0;
-    height: 7%;
+    height: 10%;
     width: 100%;
     background: rgba(254, 254, 254, 0.5);
     transform: translateY(100%);
@@ -490,9 +489,10 @@ ul {
     border: none;
     cursor: pointer;
     position: absolute;
+    top: 50%;
+    left: 50%;
     outline: none;
-    top: 43%;
-    left: 43%;
+    transform: translate(-50%, -50%);
 }
 
 .buttons .pause {
@@ -567,7 +567,6 @@ ul {
 
 .video.activeClass {
     background-color: rgba(152, 152, 152, .15);
-    padding: 3%;
 }
 
 
