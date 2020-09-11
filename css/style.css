@@ -294,8 +294,8 @@ ul {
     letter-spacing: 0.24px;
 }
 
-.places .activeClass {
-    bottom: 31px;
+.place.activeClass {
+    bottom: 73px;
 }
 
 .far {
@@ -544,7 +544,7 @@ ul {
     flex-direction: column;
     overflow-y: scroll;
     overflow-x: hidden;
-    height: 597px;
+    height: 573px;
 
 }
 
@@ -560,7 +560,7 @@ ul {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 2%;
+    padding: 1.8%;
     text-align: start;
     align-items: center;
 }
@@ -604,7 +604,7 @@ ul {
 
 @media (max-width:1536px) and (min-width: 991px) {
     .otherVideos {
-        height: 441px;
+        height: 431px;
     }
 }
 

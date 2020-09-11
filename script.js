@@ -107,12 +107,23 @@ $(document).ready(function () {
         positionPlaces += movePositionPlace;
         setPosition(positionPlaces, places);
         checkBtn();
+        let currentActive = places.find('.activeClass');
+        console.log(currentActive);
+        currentActive.removeClass('activeClass');
+        currentActive.prev().addClass('activeClass');
     })
+
+
+
 
     nextPlace.click(function () {
         positionPlaces -= movePositionPlace;
         setPosition(positionPlaces, places);
         checkBtn();
+        let currentActive = places.find('.activeClass');
+        console.log(currentActive);
+        currentActive.removeClass('activeClass');
+        currentActive.next().addClass('activeClass');
     })
 
 
@@ -120,6 +131,10 @@ $(document).ready(function () {
         position += movePosition;
         setPosition(position, categories);
         checkBtn();
+        let currentActive = categories.find('.activeClass');
+        console.log(currentActive);
+        currentActive.removeClass('activeClass');
+        currentActive.prev().addClass('activeClass');
 
     })
 
@@ -129,7 +144,15 @@ $(document).ready(function () {
         checkBtn();
 
 
+        let currentActive = categories.find('.activeClass');
+        console.log(currentActive);
+        currentActive.removeClass('activeClass');
+        currentActive.next().addClass('activeClass');
+
+
     })
+
+    
 
     const setPosition = (pos, list) => {
         list.css({
@@ -193,7 +216,7 @@ $(document).ready(function () {
             let videoItem = $(elem).children('.videoFromList');
             let duration = calculateVideoDuration(videoItem);
             $(elem).find('.durationVideoFromList').text(duration);
-            console.log(duration);
+            // console.log(duration);
         })
     };
 
