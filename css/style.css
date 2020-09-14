@@ -41,7 +41,7 @@ ul {
 
 .wrapper {
     max-width: 1600px;
-    margin: 0 160px;
+    margin: 0 8.3vw;
     text-align: center;
 }
 
@@ -50,10 +50,12 @@ ul {
     padding-bottom: 95px;
 }
 
+
 .header .wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 
 }
 
@@ -74,44 +76,135 @@ ul {
     display: flex;
     justify-content: space-around;
     padding-left: 0;
-    padding-right: 60px;
+    padding-right: 3.1vw;
     margin: 0;
     max-width: 500px;
     align-items: center;
+}
+
+.navToggle {
+    display: none;
 }
 
 .nav a {
     color: #bab8b8;
     font-family: "Nunito";
     font-size: 20px;
+    font-size: calc(14px + 0.3125vw);
 }
 
 .navItem {
-    margin-left: 60px;
+    margin-left: 3.1vw;
 }
 
 .navItem:first-child {
     margin-left: 0;
 }
 
-.navLink.active {
+.navLink.activeClass {
     color: #4497f3;
     font-family: "Nunito - Semi Bold";
 }
 
-.navLink:hover {
-    border-bottom: 1px solid;
+.btnSignInSm {
+    display: none;
 }
 
 .btnSignIn {
     border: 3px solid #3984f3;
-    padding: 19px 46px;
+    /* padding: 19px 46px; */
+    padding: 1vw 2.4vw;
     color: #3984f3;
     font-family: "Nunito";
-    font-size: 20px;
+    /* font-size: 20px; */
+    font-size: calc(14px + 0.3125vw);
+
 
 }
 
+
+
+/* responsive */
+
+@media screen and (max-device-width : 1024px) and (min-device-width : 768px) {
+    .navItem {
+        margin-left: 2.5vw;
+    }
+
+    .logo img {
+        max-width: 150px;
+    }
+
+
+}
+
+@media screen and (max-device-width : 767px) and (min-device-width : 480px) {
+
+    .logo img {
+        max-width: 150px;
+    }
+
+    .navHeader {
+        display: none;
+        /* position: absolute; */
+    }
+    .btnSignIn{
+        display: none;
+    }
+
+    .nav {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+    }
+
+    .navToggle {
+        display: block;
+        position: absolute;
+        cursor: pointer;
+        width: 30px;
+        z-index: 1;
+        right: 3.1vw;
+        margin-right: 3.1vw;
+        border: none;
+        background: none;
+        padding: 0;
+    }
+
+    .navToggleItem {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: #3984f3;
+    }
+
+    .navToggleItem::before,
+    .navToggleItem::after {
+        content: "";
+        background-color: #3984f3;
+        width: 100%;
+        height: 3px;
+        position: absolute;
+        left: 0;
+        top: 9px;
+    }
+
+    .navToggleItem::before {
+        top: -9px
+    }
+
+    .btnSignInSm {
+        display: block;
+
+    }
+
+    .btnSignInSm i {
+        color: #3984f3;
+        font-size: calc(20px + 0.3125vw);
+    }
+
+}
 
 /* header */
 
@@ -553,7 +646,7 @@ ul {
 }
 
 .otherVideos::-webkit-scrollbar-thumb {
-    background-color: #d9d9d9; 
+    background-color: #d9d9d9;
 }
 
 .video {

@@ -12,9 +12,11 @@ $(document).ready(function () {
             });
         });
     }
+    activeClass($('.navLink'));
     activeClass($('.category'));
     activeClass($('.place'));
     activeClass($('.video'));
+    
 
     //                  scroll of places/categories & trevellers
 
