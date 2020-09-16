@@ -26,6 +26,7 @@
 body {
     background-color: #fff;
     font-family: "Nunito Sans - Semi Bold";
+    height: 100%;
 }
 
 a {
@@ -46,21 +47,50 @@ ul {
 }
 
 .header {
-    padding-top: 71px;
-    padding-bottom: 95px;
+    position: fixed;
+    z-index: 50;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+
 }
 
+.header::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
 
-.header .wrapper {
+}
+
+.headerBody {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
+    height: 57px;
+    padding-top: 71px;
+    padding-bottom: 95px;
+    transition: 0.3s;
 
+
+}
+
+.headerBody.fixed {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    transition: 0.3s;
 }
 
 .logo {
     cursor: pointer;
+    position: relative;
+    z-index: 3;
 }
 
 .logo img {
@@ -69,6 +99,9 @@ ul {
 
 .navHeader {
     display: flex;
+    z-index: 2;
+    position: relative;
+    overflow: auto;
 }
 
 
@@ -112,11 +145,9 @@ ul {
 
 .btnSignIn {
     border: 3px solid #3984f3;
-    /* padding: 19px 46px; */
     padding: 1vw 2.4vw;
     color: #3984f3;
     font-family: "Nunito";
-    /* font-size: 20px; */
     font-size: calc(14px + 0.3125vw);
 
 
@@ -126,38 +157,128 @@ ul {
 
 /* responsive */
 
-@media screen and (max-device-width : 1024px) and (min-device-width : 768px) {
+
+@media screen and (max-width :1200px) {
+    .wrapper {
+        max-width: 970px;
+    }
+
+    .logo img {
+        max-width: 150px;
+    }
+
+    .headerBody {
+        height: 50px;
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+}
+
+
+@media screen and (max-width :992px) {
+    .wrapper {
+        max-width: 750px;
+    }
+
+    .logo img {
+        max-width: 130px;
+    }
+
     .navItem {
         margin-left: 2.5vw;
     }
 
-    .logo img {
-        max-width: 150px;
+    .headerBody {
+        height: 50px;
+        padding-top: 50px;
+        padding-bottom: 50px;
     }
-
-
 }
 
-@media screen and (max-device-width : 767px) and (min-device-width : 480px) {
+@media screen and (max-width :767px) {
+    .wrapper {
+        max-width: none;
+        margin: 0 auto;
+        padding: 0 4.68vw;
+    }
 
     .logo img {
-        max-width: 150px;
+        max-width: 110px;
+    }
+
+    .headerBody {
+        height: 55px;
+        padding-top: 10px;
+        padding-bottom: 0;
+    }
+
+    .headerBody.fixed {
+        padding-bottom: 0;
+        padding-top: 10px;
     }
 
     .navHeader {
-        display: none;
-        /* position: absolute; */
+        position: fixed;
+        width: 100%;
+        height: 35%;
+        top: -100%;
+        left: 0;
+        background-color: white;
+        padding: 85px 0 0 0;
+        transition: all .3s ease 0s;
+
+
+
     }
-    .btnSignIn{
-        display: none;
+
+    .navHeader.active {
+        top: 0;
+        transition: all .3s ease 0s;
     }
 
     .nav {
         display: block;
-        position: absolute;
-        top: 100%;
-        left: 0;
+        margin: 0 auto;
+
     }
+
+    .nav a {
+        font-size: calc(18px + 0.3125vw)
+    }
+
+    .navItem {
+        margin-left: 0;
+
+    }
+
+    .navItem::after {
+        content: '';
+        background-color: #4497f3;
+        display: block;
+        width: 15px;
+        height: 2px;
+        margin: 15px auto;
+    }
+
+    .navItem:last-child::after {
+        display: none;
+    }
+
+    .navLink {
+        position: relative;
+        z-index: 1;
+    }
+
+    .navLink:hover {
+        color: #4497f3;
+
+    }
+
+    .btnSignIn {
+        display: none;
+    }
+
+
 
     .navToggle {
         display: block;
@@ -165,37 +286,67 @@ ul {
         cursor: pointer;
         width: 30px;
         z-index: 1;
-        right: 3.1vw;
-        margin-right: 3.1vw;
+        right: calc(4.68vw + 30px);
         border: none;
         background: none;
         padding: 0;
+        z-index: 3;
+    }
+
+
+    .navToggle:focus {
+        outline: none;
+    }
+
+    .navToggle.active .navToggleItem {
+        background: none;
+
     }
 
     .navToggleItem {
         display: block;
         width: 100%;
+        top: 9px;
         height: 3px;
         background-color: #3984f3;
+        transition: all .3s ease 0s;
+
     }
 
-    .navToggleItem::before,
-    .navToggleItem::after {
+
+    .navToggle::before,
+    .navToggle::after {
         content: "";
         background-color: #3984f3;
         width: 100%;
         height: 3px;
         position: absolute;
         left: 0;
-        top: 9px;
+        top: -9px;
+        transition: all .3s ease 0s;
+
     }
 
-    .navToggleItem::before {
-        top: -9px
+    .navToggle::before {
+        top: 9px
+    }
+
+    .navToggle.active::before,
+    .navToggle.active::after {
+        transform: rotate(45deg);
+        top: 0px;
+    }
+
+    .navToggle.active::after {
+        transform: rotate(-45deg);
+        top: 0px;
     }
 
     .btnSignInSm {
         display: block;
+        position: absolute;
+        right: 4.68vw;
+        z-index: 3;
 
     }
 
@@ -203,20 +354,21 @@ ul {
         color: #3984f3;
         font-size: calc(20px + 0.3125vw);
     }
-
 }
+
 
 /* header */
 
 
 .signUp {
     position: relative;
+    padding-top: 223px;
 }
 
 .signUp .container {
     display: flex;
     justify-content: space-between;
-    margin-left: 160px;
+    margin-left: 8.3vw;
 }
 
 .headerSignUp {
@@ -230,9 +382,9 @@ ul {
 .titleHeader {
     color: #091e40;
     font-family: "Nunito Sans - Extra Bold";
-    font-size: 75px;
+    font-size: calc(14px + 3.17vw);
     font-weight: 400;
-    line-height: 80px;
+    line-height: calc(14px + 3.43vw);
     letter-spacing: -3px;
     margin: 0;
 
@@ -241,20 +393,19 @@ ul {
 .titleHeader+p {
     color: #81858e;
     font-family: "Nunito Sans";
-    font-size: 22px;
+    font-size: calc(14px + 0.42vw);
     font-weight: 400;
-    line-height: 35px;
+    line-height: calc(14px + 1.09vw);
     letter-spacing: 0.22px;
     margin: 76px 0 96px;
 }
 
 .btn {
-    padding: 19px 46px;
+    padding: 1vw 2.4vw;
     color: #ffffff;
     font-family: "Nunito Sans - Semi Bold";
-    font-size: 20px;
+    font-size: calc(14px + 0.3125vw);
     font-weight: 400;
-    line-height: 35px;
     letter-spacing: 0.2px;
     background-color: #3984f3;
     border: none;
@@ -284,7 +435,98 @@ ul {
     content: url(/img/headerImageLeft.png);
     display: block;
     position: absolute;
-    top: 650px;
+    top: 810px;
+}
+
+/* responsive */
+
+
+@media screen and (max-width :1200px) {
+
+    .signUp {
+        padding-top: 170px;
+    }
+
+    .headerSignUp {
+        padding-top: 120px;
+        margin-bottom: 170px;
+    }
+    .titleHeader{
+        letter-spacing: 0px;
+    }
+
+    .signUp .container .imgRight {
+        max-width: 750px;
+
+    }
+
+    .titleHeader+p {
+        margin: 60px 0 70px;
+    }
+
+    .signUp::before {
+        top: 450px;
+        transform: scale(.6);
+    }
+}
+
+
+@media screen and (max-width :992px) {
+    .signUp {
+        padding-top: 150px;
+    }
+
+    .signUp .container .imgRight {
+        max-width: 570px;
+
+    }
+
+    .headerSignUp {
+        padding-top: 70px;
+        margin-bottom: 130px;
+    }
+
+    .titleHeader+p {
+        margin: 40px 0 50px;
+    }
+
+    .signUp::before {
+        display: none;
+    }
+
+
+}
+
+@media screen and (max-width :767px) {
+    .signUp {
+        padding-top: 95px;
+    }
+
+    .signUp .container {
+        justify-content: center;
+        margin: 0 auto;
+        padding: 0 4.68vw;
+    }
+
+    .signUp .container .imgRight {
+        display: none;
+    }
+    .headerSignUp {
+        padding-top: 15px;
+        margin-bottom: 35px;
+    }
+    .titleHeader+p {
+        margin: 20px 0 25px;
+    }
+
+    /* .signUp::before {
+        top: 200px;
+        transform: scale(.6);
+        content: url(/img/headerImageLeft.png);
+        display: block;
+        position: absolute;
+    } */
+
 }
 
 

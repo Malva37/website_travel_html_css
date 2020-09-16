@@ -1,5 +1,39 @@
 $(document).ready(function () {
 
+
+    //                    on scroll
+
+    let headerBody = $('.headerBody'),
+    header = $('.header'),
+        scrollOffset = 0;
+
+    $(window).on("scroll", function () {
+        scrollOffset = $(this).scrollTop();
+        console.log(scrollOffset);
+        if (scrollOffset >= 100) {
+            headerBody.addClass(" fixed");
+            header.css("box-shadow","0 20px 20px #00000033");
+            console.log('scrollOffset >= 100');
+
+        }
+        else{
+            headerBody.removeClass(" fixed");
+            header.css("box-shadow","none")
+            console.log('scrollOffset =! 100');
+
+        }
+
+    })
+    
+
+    //                   nav toggle
+
+    let navToggle = $('.navToggle');
+    navToggle.on("click", function (event) {
+        $(".navToggle, .navHeader").toggleClass("active");
+    })
+
+
     //                  add new class during hover on images of places/categories/videos
 
     let activeClass = (collection) => {
@@ -7,6 +41,9 @@ $(document).ready(function () {
             $(elem).click(function () {
                 collection.each(function (index, elem) {
                     $(elem).removeClass(" activeClass");
+                    if(elem.className=='navLink'){
+                        $(".navToggle, .navHeader").removeClass(" active");
+                    }
                 })
                 $(this).addClass(" activeClass")
             });
@@ -16,7 +53,7 @@ $(document).ready(function () {
     activeClass($('.category'));
     activeClass($('.place'));
     activeClass($('.video'));
-    
+
 
     //                  scroll of places/categories & trevellers
 
@@ -154,7 +191,7 @@ $(document).ready(function () {
 
     })
 
-    
+
 
     const setPosition = (pos, list) => {
         list.css({
@@ -275,6 +312,12 @@ $(document).ready(function () {
     })
 
 
+    const width = window.innerWidth || document.documentElement.clientWidth ||
+        document.body.clientWidth;
+    const height = window.innerHeight || document.documentElement.clientHeight ||
+        document.body.clientHeight;
+
+    console.log('width:', width, 'height:', height);
 
 
 
