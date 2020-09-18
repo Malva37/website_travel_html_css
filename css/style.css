@@ -390,7 +390,11 @@ ul {
 
 }
 
-.titleHeader+p {
+.titleHeader+.line {
+    display: none;
+}
+
+.titleHeader~p {
     color: #81858e;
     font-family: "Nunito Sans";
     font-size: calc(14px + 0.42vw);
@@ -451,7 +455,8 @@ ul {
         padding-top: 120px;
         margin-bottom: 170px;
     }
-    .titleHeader{
+
+    .titleHeader {
         letter-spacing: 0px;
     }
 
@@ -467,6 +472,7 @@ ul {
     .signUp::before {
         top: 450px;
         transform: scale(.6);
+        left: -50px;
     }
 }
 
@@ -483,7 +489,7 @@ ul {
 
     .headerSignUp {
         padding-top: 70px;
-        margin-bottom: 130px;
+        margin-bottom: 90px;
     }
 
     .titleHeader+p {
@@ -511,21 +517,27 @@ ul {
     .signUp .container .imgRight {
         display: none;
     }
+
     .headerSignUp {
         padding-top: 15px;
-        margin-bottom: 35px;
-    }
-    .titleHeader+p {
-        margin: 20px 0 25px;
+        margin-bottom: 50px;
+        text-align: center;
     }
 
-    /* .signUp::before {
-        top: 200px;
-        transform: scale(.6);
-        content: url(/img/headerImageLeft.png);
+    .titleHeader {
+        font-family: "Nunito Sans - Semi Bold";
+        font-size: calc(14px + 2vw);
+    }
+
+    .titleHeader+.line {
         display: block;
-        position: absolute;
-    } */
+        margin: 15px auto;
+
+    }
+
+    .titleHeader~p {
+        margin: 20px 0 25px;
+    }
 
 }
 
@@ -537,32 +549,34 @@ ul {
     position: relative;
     padding-top: 230px;
     padding-bottom: 254px;
+    transition: all .3s ease 0s;
 }
 
 .listTravel .container {
     display: flex;
     justify-content: space-between;
-    margin: 0 160px 0 0;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+    margin: 0 8.3vw 0 0;
 }
 
 .listTravelArticle {
     max-width: 574px;
-    margin-left: 135px;
+    margin-left: 5vw;
 }
 
 .title {
     color: #091e40;
     font-family: "Nunito Sans - Semi Bold";
-    font-size: 50px;
+    font-size: calc(14px + 1.87vw);
     margin: 0;
     font-weight: 400;
-    line-height: 62px;
+    line-height: calc(14px + 2.5vw);
     letter-spacing: 0.13px;
 }
 
 .listTravelArticle .title~p {
     margin: 0 0 61px;
-    max-width: 559px;
 
 }
 
@@ -582,17 +596,20 @@ ul {
 .title~p {
     color: #81858e;
     font-family: "Nunito Sans";
-    font-size: 22px;
+    font-size: calc(14px + 0.42vw);
     font-weight: 400;
-    line-height: 42px;
+    line-height: calc(14px + 1.45vw);
     letter-spacing: -0.6px;
     margin: 0;
 }
 
 
 .listPlaces {
-    max-width: 1044px;
-    min-width: 888px;
+    max-width: 976px;
+    min-width: 770px;
+}
+.listPlacesMobile{
+    display: none;
 }
 
 .placesContainer {
@@ -617,6 +634,7 @@ ul {
 .activeClass .dataPlace {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
     margin-top: 21px;
 }
@@ -624,7 +642,7 @@ ul {
 .activeClass .duration {
     color: #a0a0a0;
     font-family: "Nunito Sans - Semi Bold";
-    font-size: 24px;
+    font-size: calc(14px + 0.52vw);
     font-weight: 400;
     letter-spacing: 0.24px;
 }
@@ -633,10 +651,7 @@ ul {
     bottom: 73px;
 }
 
-.far {
-    color: #3984f3;
-}
-
+.far,
 .fa {
     color: #3984f3;
 }
@@ -660,9 +675,9 @@ ul {
     z-index: 1;
     color: #ffffff;
     font-family: "Nunito Sans - Semi Bold";
-    font-size: 24px;
+    font-size: calc(14px + 0.52vw);
     font-weight: 400;
-    line-height: 42px;
+    line-height: calc(14px + 1.45vw);
     letter-spacing: 0.24px;
     background-color: #3984f3;
     padding: 10px 30px;
@@ -675,14 +690,13 @@ ul {
     z-index: 1;
     color: #ffffff;
     font-family: "Nunito Sans";
-    font-size: 23px;
+    font-size: calc(14px + 0.47vw);
     font-weight: 400;
 }
 
 .navigation {
     padding-top: 78px;
-    margin-left: 160px;
-
+    margin-left: 8.3vw;
 
 }
 
@@ -702,6 +716,168 @@ ul {
 .prevPlace,
 .prevCateg {
     margin-right: 62px;
+}
+
+
+
+
+/* responsive */
+
+
+@media screen and (max-width :1200px) {
+    .listTravel {
+        padding-top: 120px;
+        padding-bottom: 170px;
+    }
+
+    .listPlaces {
+        max-width: 750px;
+        min-width: 550px;
+    }
+
+    .title,
+    .title~p {
+        letter-spacing: 0px;
+    }
+
+    .listTravelArticle {
+        max-width: 350px;
+        margin-left: 3vw;
+
+    }
+
+    .listPlaces img {
+        height: 330px;
+    }
+
+    .far,
+    .fa {
+        font-size: 13px;
+    }
+
+    .activeClass .dataPlace {
+        margin-top: 10px;
+    }
+
+    .activeClass .duration {
+        font-size: calc(14px + 0.22vw);
+    }
+
+    .namePlace {
+        left: 10px;
+        bottom: 40px;
+    }
+
+    .pricePlace {
+        padding: 5px 15px;
+    }
+
+    .place.activeClass {
+        bottom: 35px;
+    }
+
+    .navigation {
+        padding-top: 50px;
+    }
+
+    .line {
+        width: 50px;
+        height: 3px;
+    }
+
+    .listTravelArticle .line {
+        margin: 25px 0 35px;
+    }
+
+    .listTravelArticle .title~p {
+        margin: 0 0 25px;
+    }
+}
+
+
+@media screen and (max-width :992px) {
+    .listTravel {
+        padding-top: 70px;
+        padding-bottom: 130px;
+    }
+
+    .listTravel .container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        margin: 0;
+    }
+
+    .listTravelArticle {
+        max-width: none;
+        margin: 0 8.3vw 40px;
+    }
+
+
+    .listTravelArticle .line {
+        margin: 25px auto;
+    }
+
+    .listPlaces {
+        max-width: none;
+        text-align: left;
+    }
+
+
+    .place.activeClass {
+        bottom: 20px;
+    }
+
+    .activeClass .dataPlace {
+        margin-top: 5px;
+    }
+
+    .far,
+    .fa {
+        font-size: 10px;
+    }
+
+    .listPlaces img {
+        height: 270px;
+    }
+
+    .namePlace {
+        left: 5px;
+        bottom: 45px;
+    }
+
+    .navigation {
+        padding-top: 15px;
+        text-align: center;
+        margin-left: 0;
+
+    }
+
+}
+
+@media screen and (max-width :767px) {
+    .listTravel {
+        padding-top: 15px;
+        padding-bottom: 35px;
+    }
+
+    .listTravel .container {
+        justify-content: center;
+        margin: 0 auto;
+        /* padding: 0 4.68vw; */
+    }
+
+    .listTravelArticle .line {
+        margin: 15px auto;
+    }
+
+    .listPlaces {
+       display: none;
+    }
+    .listPlacesMobile{
+        display: block;
+    }
 }
 
 /* listTravel */

@@ -4,27 +4,23 @@ $(document).ready(function () {
     //                    on scroll
 
     let headerBody = $('.headerBody'),
-    header = $('.header'),
+        header = $('.header'),
         scrollOffset = 0;
 
     $(window).on("scroll", function () {
         scrollOffset = $(this).scrollTop();
-        console.log(scrollOffset);
         if (scrollOffset >= 100) {
             headerBody.addClass(" fixed");
-            header.css("box-shadow","0 20px 20px #00000033");
-            console.log('scrollOffset >= 100');
+            header.css("box-shadow", "0 20px 20px #00000033");
 
-        }
-        else{
+        } else {
             headerBody.removeClass(" fixed");
-            header.css("box-shadow","none")
-            console.log('scrollOffset =! 100');
+            header.css("box-shadow", "none")
 
         }
 
     })
-    
+
 
     //                   nav toggle
 
@@ -41,7 +37,7 @@ $(document).ready(function () {
             $(elem).click(function () {
                 collection.each(function (index, elem) {
                     $(elem).removeClass(" activeClass");
-                    if(elem.className=='navLink'){
+                    if (elem.className == 'navLink') {
                         $(".navToggle, .navHeader").removeClass(" active");
                     }
                 })
@@ -60,8 +56,8 @@ $(document).ready(function () {
     let positionPlaces = 0;
     let position = 0;
 
-    const slideToShowPlaces = 3;
-    const slideToShow = 4;
+    let slideToShowPlaces = 3;
+    let slideToShow = 4;
     const slideToScroll = 1;
 
     let containerPlaces = $('.placesContainer');
@@ -87,42 +83,81 @@ $(document).ready(function () {
     let placeCount = place.length;
     let categoryCount = category.length;
 
-    let marginLeftPlaces = containerPlaces.width() * 0.06;
-    let marginLeftCategories = container.width() * 0.018;
+    let marginLeftPlaces;
+    let marginLeftCategories;
 
-    const placeWidth = containerPlaces.width() / slideToShowPlaces;
-    const categoryWidth = container.width() / slideToShow;
+    let placeWidth;
+    let categoryWidth;
+
+    let coefficientMarginPlace;
+    let coefficientMarginCateg=0.018;
+
 
     let movePositionPlace = slideToScroll * (placeWidth + marginLeftPlaces);
     let movePosition = slideToScroll * (categoryWidth + marginLeftCategories);
 
-    place.each(function (index, elem) {
-        if (index == 0) {
-            $(elem).css({
-                minWidth: placeWidth,
-                marginLeft: -placeWidth / 2
-            })
-        } else {
-            $(elem).css({
-                minWidth: placeWidth,
-                marginLeft: marginLeftPlaces
-            });
-        }
-    });
+    findMarginAndWidthSlide();
 
-    category.each(function (index, elem) {
-        if (index == 0) {
-            $(elem).css({
-                minWidth: categoryWidth,
-                marginLeft: -categoryWidth / 2
-            });
-        } else {
-            $(elem).css({
-                minWidth: categoryWidth,
-                marginLeft: marginLeftCategories
-            });
+    function findMarginAndWidthSlide() {
+        let width = window.innerWidth;
+        if (width >= 992 && width <= 1200) {
+            slideToShowPlaces = 3;
+            coefficientMarginPlace=0.06;
+            // let slideToShow = 4;
+        } else if (width >= 767 && width <= 991) {
+            slideToShowPlaces = 5;
+            coefficientMarginPlace = 0.03;
+            console.log('slideToShowPlaces ', slideToShowPlaces);
+        } else if (width <= 767) {
+            // slideToShowPlaces = 1;
+            setSlidersForMobile();
+            return
+
         }
-    });
+        marginLeftPlaces = containerPlaces.width() * coefficientMarginPlace;
+        placeWidth = containerPlaces.width() / slideToShowPlaces;
+        marginLeftCategories = container.width() * coefficientMarginCateg;
+        categoryWidth = container.width() / slideToShow;
+        setSliders();
+    }
+
+    function setSliders() {
+        place.each(function (index, elem) {
+            if (index == 0) {
+                $(elem).css({
+                    minWidth: placeWidth,
+                    marginLeft: -placeWidth / 2
+                })
+            } else {
+                $(elem).css({
+                    minWidth: placeWidth,
+                    marginLeft: marginLeftPlaces
+                });
+            }
+        });
+        category.each(function (index, elem) {
+            if (index == 0) {
+                $(elem).css({
+                    minWidth: categoryWidth,
+                    marginLeft: -categoryWidth / 2
+                });
+            } else {
+                $(elem).css({
+                    minWidth: categoryWidth,
+                    marginLeft: marginLeftCategories
+                });
+            }
+        });
+    };
+
+
+    $(window).on("resize", function () {
+        findMarginAndWidthSlide();
+    })
+
+
+
+
 
 
     let checkBtn = () => {
