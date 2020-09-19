@@ -21,6 +21,26 @@ $(document).ready(function () {
 
     })
 
+    //                  responsive height & spoiler otherVideos
+
+
+    $(window).on("scroll", function () {
+        let width = window.innerWidth;
+        if (width >= 767) {
+            let heightOtherVideo = $('.videoFile').height()
+            $('.otherVideos').height(heightOtherVideo);
+        }
+    })
+
+    $('.otherVideos .title').click(function(event){
+        console.log( $(this).find(".video"));
+        console.log( $(this).nextAll());
+        $(this).toggleClass(' active').nextAll().slideToggle(300);
+    })
+
+
+
+
 
     //                   nav toggle
 
@@ -51,7 +71,7 @@ $(document).ready(function () {
     activeClass($('.video'));
 
 
-    //                  scroll of places/categories & trevellers
+    //                  scroll of places/categories/trevellers
 
     let positionPlaces = 0;
     let position = 0;
@@ -90,7 +110,7 @@ $(document).ready(function () {
     let categoryWidth;
 
     let coefficientMarginPlace;
-    let coefficientMarginCateg=0.018;
+    let coefficientMarginCateg = 0.018;
 
 
     let movePositionPlace = slideToScroll * (placeWidth + marginLeftPlaces);
@@ -102,18 +122,16 @@ $(document).ready(function () {
         let width = window.innerWidth;
         if (width >= 992 && width <= 1200) {
             slideToShowPlaces = 3;
-            coefficientMarginPlace=0.06;
+            coefficientMarginPlace = 0.06;
             // let slideToShow = 4;
         } else if (width >= 767 && width <= 991) {
             slideToShowPlaces = 5;
             coefficientMarginPlace = 0.03;
             console.log('slideToShowPlaces ', slideToShowPlaces);
         } else if (width <= 767) {
-            // slideToShowPlaces = 1;
-            setSlidersForMobile();
             return
-
         }
+        coefficientMarginPlace = 0.06;
         marginLeftPlaces = containerPlaces.width() * coefficientMarginPlace;
         placeWidth = containerPlaces.width() / slideToShowPlaces;
         marginLeftCategories = container.width() * coefficientMarginCateg;
@@ -154,10 +172,6 @@ $(document).ready(function () {
     $(window).on("resize", function () {
         findMarginAndWidthSlide();
     })
-
-
-
-
 
 
     let checkBtn = () => {
@@ -269,6 +283,17 @@ $(document).ready(function () {
         checkBtn();
 
     })
+
+
+    //                  scroll of places/categories/trevellers mobile version
+
+
+
+    $('.listPlacesMobile').slick({
+        adaptiveHeight: true,
+    });
+
+
 
 
     //                  video player
