@@ -520,7 +520,7 @@ ul {
 
     .headerSignUp {
         padding-top: 15px;
-        margin-bottom: 50px;
+        margin-bottom: 55px;
         text-align: center;
     }
 
@@ -531,7 +531,6 @@ ul {
 
     .titleHeader+.line {
         display: block;
-        margin: 15px auto;
 
     }
 
@@ -761,6 +760,7 @@ ul {
 
 .placeMobile img {
     position: relative;
+    max-height: 400px;
 }
 
 .listPlacesMobile .pricePlace {
@@ -783,7 +783,6 @@ ul {
 @media screen and (max-width :1200px) {
     .listTravel {
         padding-top: 120px;
-        padding-bottom: 170px;
     }
 
     .listPlaces {
@@ -854,7 +853,6 @@ ul {
 @media screen and (max-width :992px) {
     .listTravel {
         padding-top: 20px;
-        padding-bottom: 90px;
     }
 
     .listTravel .container {
@@ -868,11 +866,6 @@ ul {
     .listTravelArticle {
         max-width: none;
         margin: 0 8.3vw 40px;
-    }
-
-
-    .listTravelArticle .line {
-        margin: 25px auto;
     }
 
     .listPlaces {
@@ -915,17 +908,12 @@ ul {
 @media screen and (max-width :767px) {
     .listTravel {
         padding-top: 15px;
-        padding-bottom: 50px;
     }
 
     .listTravel .container {
         justify-content: center;
         margin: 0 auto;
-        /* padding: 0 4.68vw; */
-    }
 
-    .listTravelArticle .line {
-        margin: 15px auto;
     }
 
     .listPlaces {
@@ -1012,7 +1000,6 @@ ul {
     left: 5%;
 
 }
-
 
 .controls {
     position: absolute;
@@ -1124,11 +1111,17 @@ ul {
     overflow-y: scroll;
     overflow-x: hidden;
     height: 573px;
+    position: relative;
 
 }
 
 .otherVideos::-webkit-scrollbar {
     width: 6px;
+}
+
+.moreVideo {
+    display: none;
+
 }
 
 .otherVideos::-webkit-scrollbar-thumb {
@@ -1163,8 +1156,6 @@ ul {
 .titleVideoFromList {
     color: #091e40;
     font-family: "Nunito Sans - Semi Bold";
-    /* font-size: 26px; */
-    /* font-size: calc(14px + 0.63vw); */
     font-weight: 400;
     letter-spacing: 0.14px;
     margin: 0 0 0;
@@ -1175,7 +1166,6 @@ ul {
     opacity: 0.7;
     color: #091e40;
     font-family: "Nunito Sans";
-    /* font-size: 20px; */
     font-size: calc(14px + 0.31vw);
     font-weight: 400;
     letter-spacing: 0.11px;
@@ -1183,39 +1173,16 @@ ul {
 
 }
 
-@media screen and (max-width :1200px) {
-    .videosTravel {
-        padding-bottom: 170px;
-
-    }
-
-    .videosTravelArticle .line {
-        margin: 25px auto 35px;
-    }
-}
+@media screen and (max-width :1200px) {}
 
 @media screen and (max-width :992px) {
-    .videosTravel {
-        padding-bottom: 90px;
-
-    }
-
-    .videosTravelArticle .line {
-        margin: 25px auto;
+    .videosTravelArticle .title~p {
+        margin: 0 auto 50px;
     }
 
 }
 
 @media screen and (max-width :767px) {
-    .videosTravel {
-        padding-bottom: 50px;
-
-    }
-
-    .videosTravelArticle .line {
-        margin: 15px auto;
-    }
-
     .videos {
         flex-direction: column;
     }
@@ -1225,37 +1192,85 @@ ul {
         max-width: 100%;
     }
 
+    .titleVideo {
+        letter-spacing: 0;
+        bottom: 20%;
+    }
+
     .videosTravelArticle .title~p {
         margin: 0 auto 40px;
     }
 
     .otherVideos {
         margin: 40px 0 0 0;
+        height: auto;
+        max-height: 300px;
+        padding-right: 0;
     }
-    .otherVideos .title{
-        position: relative;
+
+    .moreVideo {
+        position: sticky;
+        top: 0;
+        display: block;
+        padding: 5px 0;
+        z-index: 1;
+        border: none;
+        outline: none;
+        margin-bottom: 10px;
+        background-color: rgb(243, 240, 240);
         cursor: pointer;
+        color: #091e40;
+        font-family: "Nunito Sans - Semi Bold";
+        font-size: calc(14px + 0.87vw);
     }
-    .otherVideos .title::before,
-    .otherVideos .title::after{
+
+    .moreVideo::before,
+    .moreVideo::after {
         content: '';
         width: 10px;
         height: 1px;
-        background-color: #d9d9d9;
         background-color: black;
         position: absolute;
-        top:8px;
+        top: 16px;
 
     }
-    .otherVideos .title::after{
+
+    .moreVideo::after {
         transform: rotate(40deg);
-        right:  8px;
+        right: 13px;
     }
-    .otherVideos .title::before{
+
+    .moreVideo::before {
         transform: rotate(-40deg);
-        right: 0;
+        right: 5px;
     }
-    .otherVideos .video{
+
+
+
+    .moreVideo.active::before {
+        transform: rotate(40deg);
+
+    }
+
+    .moreVideo.active::after {
+        transform: rotate(-40deg);
+
+    }
+
+    .otherVideos .video {
+        display: none;
+    }
+
+    .videoFromList {
+        max-width: 40%;
+    }
+
+    .dataVideo {
+        width: 55%;
+        margin-left: 0;
+    }
+
+    .durationVideoFromList {
         display: none;
     }
 
@@ -1292,6 +1307,10 @@ ul {
 
 }
 
+.galleryCategoriesMobile {
+    display: none;
+}
+
 .category {
     height: 500px;
     border: none;
@@ -1311,11 +1330,12 @@ ul {
 
 .titleCateg {
     position: absolute;
-    bottom: 38px;
+    bottom: 10%;
     left: 10%;
     color: #ffffff;
     font-family: "Nunito Sans";
     font-size: 28px;
+    font-size: calc(14px + 0.73vw);
     font-weight: 400;
     margin: 0;
     letter-spacing: 0.26px;
@@ -1326,6 +1346,71 @@ ul {
 .imagesCategory .activeClass {
     bottom: 59px;
 }
+
+/* responsive */
+
+@media screen and (max-width: 1200px) {
+    .categoriesTravelArticle {
+        margin: 0 auto 100px;
+    }
+
+    .galleryCategories {
+        margin: 0px auto 50px;
+    }
+
+    .category {
+        height: 330px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .categoriesTravelArticle {
+        margin: 0 auto 30px;
+    }
+
+    .category {
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .categoriesTravelArticle {
+        margin: 0 auto 40px;
+    }
+
+    .galleryCategories,
+    .navigationCateg {
+        display: none;
+    }
+
+    .galleryCategoriesMobile {
+        display: block;
+        position: relative;
+    }
+
+    .categoryMobile {
+        position: relative;
+        outline: none;
+
+    }
+
+    .imageCategory {
+        width: 372px;
+        height: 500px;
+        max-height: 400px;
+        margin: 0 auto;
+        position: relative;
+
+    }
+
+    .categoryMobile .titleCateg {
+        left: 26%;
+        /* font-size: calc(18px + 0.47vw); */
+    }
+}
+
+
+
 
 
 /* categoriesTravel */
@@ -1346,9 +1431,9 @@ ul {
 blockquote {
     color: #091e40;
     font-family: "Nunito Sans";
-    font-size: 26px;
+    font-size: calc(14px + 0.63vw);
     font-weight: 400;
-    line-height: 50px;
+    line-height: calc(14px + 1.88vw);
     letter-spacing: -0.26px;
     margin: 0
 }
@@ -1370,8 +1455,8 @@ blockquote {
 
 .trevellers {
     display: flex;
+    justify-content: center;
     transition: 0.2s;
-
 
 }
 
@@ -1391,14 +1476,14 @@ blockquote {
     margin: 40px auto 18px;
     color: #2b323a;
     font-family: "Nunito Sans";
-    font-size: 24px;
+    font-size: calc(14px + 0.52vw);
     font-weight: 700;
 }
 
 .position {
     color: #2b323a;
     font-family: "Nunito Sans";
-    font-size: 20px;
+    font-size: calc(14px + 0.31vw);
     font-weight: 400;
 
 }
@@ -1407,14 +1492,17 @@ blockquote {
     max-width: 225px;
     margin: 57px auto 0;
     display: flex;
+    justify-content: center;
 }
 
 .lineIndicator {
-    width: 38px;
+    /* width: 38px; */
+    width: 1.98vw;
     height: 3px;
     background-color: #7185de;
     opacity: 0.3;
-    margin-left: 17px;
+    /* margin-left: 17px; */
+    margin-left: 0.88vw;
 }
 
 .lineIndicator:first-child {
@@ -1424,8 +1512,44 @@ blockquote {
 .indicators .active {
     background-color: #3984f3;
     opacity: 1;
-    width: 60px;
+    /* width: 60px; */
+    width: 3.13vw;
 }
+
+@media screen and (max-width: 1200px) {
+    .experiencesTravelArticle {
+        margin: 0 auto 50px;
+    }
+}
+
+
+@media screen and (max-width: 992px) {
+    .experiencesTravelArticle {
+        margin: 0 auto 40px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .treveller.active {
+        min-width: 260px;
+    }
+
+    .prevTreveller,
+    .nextTreveller {
+        padding: 0;
+    }
+
+    .indicators {
+        margin: 30px auto 0;
+    }
+
+    .nameTreveller {
+        margin: 15px auto;
+    }
+}
+
+
+
 
 /* experiencesTraveles */
 
@@ -1594,4 +1718,67 @@ address span {
 
 .social a:first-child {
     margin-left: 0;
+}
+
+
+
+
+
+
+/* responsive  */
+
+
+@media screen and (max-width :1200px) {
+
+    .listTravel,
+    .videosTravel,
+    .categoriesTravel,
+    .experiencesTraveles {
+        padding-bottom: 100px;
+    }
+
+
+    .videosTravelArticle .line,
+    .categoriesTravelArticle .line,
+    .experiencesTravelArticle .line {
+        margin: 25px auto 35px;
+    }
+}
+
+
+@media screen and (max-width :992px) {
+
+    .listTravel,
+    .videosTravel,
+    .categoriesTravel,
+    .experiencesTraveles {
+        padding-bottom: 90px;
+    }
+
+    .listTravelArticle .line,
+    .videosTravelArticle .line,
+    .categoriesTravelArticle .line,
+    .experiencesTravelArticle .line {
+        margin: 25px auto;
+    }
+
+}
+
+@media screen and (max-width :767px) {
+
+    .listTravel,
+    .videosTravel,
+    .categoriesTravel,
+    .experiencesTraveles {
+        padding-bottom: 50px;
+    }
+
+    .listTravelArticle .line,
+    .titleHeader+.line,
+    .videosTravelArticle .line,
+    .categoriesTravelArticle .line,
+    .experiencesTravelArticle .line {
+        margin: 15px auto;
+    }
+
 }

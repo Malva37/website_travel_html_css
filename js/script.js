@@ -12,7 +12,6 @@ $(document).ready(function () {
         if (scrollOffset >= 100) {
             headerBody.addClass(" fixed");
             header.css("box-shadow", "0 20px 20px #00000033");
-
         } else {
             headerBody.removeClass(" fixed");
             header.css("box-shadow", "none")
@@ -24,18 +23,23 @@ $(document).ready(function () {
     //                  responsive height & spoiler otherVideos
 
 
-    $(window).on("scroll", function () {
+    $(window).on("resize load", function () {
         let width = window.innerWidth;
         if (width >= 767) {
             let heightOtherVideo = $('.videoFile').height()
             $('.otherVideos').height(heightOtherVideo);
+            console.log('>= 767');
+        } else {
+            console.log('<= 767');
+
+            $('.otherVideos').height('auto');
         }
     })
 
-    $('.otherVideos .title').click(function(event){
-        console.log( $(this).find(".video"));
-        console.log( $(this).nextAll());
-        $(this).toggleClass(' active').nextAll().slideToggle(300);
+    $('.moreVideo').click(function (event) {
+        console.log($(this).find(".video"));
+        console.log($(this).next().nextAll());
+        $(this).toggleClass(' active').next().nextAll().slideToggle(300).css('display', 'flex');
     })
 
 
@@ -110,11 +114,11 @@ $(document).ready(function () {
     let categoryWidth;
 
     let coefficientMarginPlace;
-    let coefficientMarginCateg = 0.018;
+    let coefficientMarginCateg;
 
 
-    let movePositionPlace = slideToScroll * (placeWidth + marginLeftPlaces);
-    let movePosition = slideToScroll * (categoryWidth + marginLeftCategories);
+    let movePositionPlace;
+    let movePosition;
 
     findMarginAndWidthSlide();
 
@@ -123,19 +127,21 @@ $(document).ready(function () {
         if (width >= 992 && width <= 1200) {
             slideToShowPlaces = 3;
             coefficientMarginPlace = 0.06;
-            // let slideToShow = 4;
         } else if (width >= 767 && width <= 991) {
             slideToShowPlaces = 5;
             coefficientMarginPlace = 0.03;
-            console.log('slideToShowPlaces ', slideToShowPlaces);
+            // console.log('slideToShowPlaces ', slideToShowPlaces);
         } else if (width <= 767) {
             return
         }
         coefficientMarginPlace = 0.06;
+        coefficientMarginCateg = 0.018;
         marginLeftPlaces = containerPlaces.width() * coefficientMarginPlace;
         placeWidth = containerPlaces.width() / slideToShowPlaces;
         marginLeftCategories = container.width() * coefficientMarginCateg;
         categoryWidth = container.width() / slideToShow;
+        movePositionPlace = slideToScroll * (placeWidth + marginLeftPlaces);
+        movePosition = slideToScroll * (categoryWidth + marginLeftCategories);
         setSliders();
     }
 
@@ -202,8 +208,6 @@ $(document).ready(function () {
     })
 
 
-
-
     nextPlace.click(function () {
         positionPlaces -= movePositionPlace;
         setPosition(positionPlaces, places);
@@ -230,7 +234,6 @@ $(document).ready(function () {
         position -= movePosition;
         setPosition(position, categories);
         checkBtn();
-
 
         let currentActive = categories.find('.activeClass');
         console.log(currentActive);
@@ -289,7 +292,7 @@ $(document).ready(function () {
 
 
 
-    $('.listPlacesMobile').slick({
+    $('.listPlacesMobile, .galleryCategoriesMobile').slick({
         adaptiveHeight: true,
     });
 
