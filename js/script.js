@@ -20,7 +20,7 @@ $(document).ready(function () {
 
     })
 
-    //                  responsive height & spoiler otherVideos
+    //                  responsive height & spoiler otherVideos/foother
 
 
     $(window).on("resize load", function () {
@@ -28,19 +28,18 @@ $(document).ready(function () {
         if (width >= 767) {
             let heightOtherVideo = $('.videoFile').height()
             $('.otherVideos').height(heightOtherVideo);
-            console.log('>= 767');
         } else {
-            console.log('<= 767');
-
             $('.otherVideos').height('auto');
         }
     })
 
     $('.moreVideo').click(function (event) {
-        console.log($(this).find(".video"));
-        console.log($(this).next().nextAll());
         $(this).toggleClass(' active').next().nextAll().slideToggle(300).css('display', 'flex');
     })
+    $('.navFooterTitle').click(function (event) {
+        $(this).toggleClass(' active').nextAll().slideToggle(300);
+    })
+    
 
 
 
